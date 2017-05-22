@@ -5,20 +5,31 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
-const onUpdateCart = function (event) {
-  event.preventDefault()
+// const onMakeEmptyCart = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   const idNum = $(event.target).attr('data-id')
+//   store.printId = idNum
+//   console.log('id num:', idNum)
+//   console.log('cart object:', data)
+//   api.makeEmptyCart(data)
+//     .then(ui.emptyCartSuccess)
+//     .catch(ui.emptyCartFailure)
+// }
+
+const onMakeEmptyCart = function () {
   const data = getFormFields(event.target)
   const idNum = $(event.target).attr('data-id')
   store.printId = idNum
   console.log('id num:', idNum)
   console.log('cart object:', data)
-  api.updateCart(data)
-    .then(ui.updateCartSuccess)
-    .catch(ui.updateCartFailure)
+  api.makeEmptyCart()
+    .then(ui.emptyCartSuccess)
+    .catch(ui.emptyCartFailure)
 }
 
 const addPrintHandlers = () => {
-  $('.print').on('submit', onUpdateCart)
+  $('.print').on('submit', onMakeEmptyCart)
 }
 
 module.exports = {
