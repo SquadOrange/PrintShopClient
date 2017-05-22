@@ -4,14 +4,16 @@ const store = require('../store.js')
 
 const signUpSuccess = (data) => {
   console.log('sign up success')
+  console.log(data)
 }
 
-const signUpFailure = () => {
+const signUpFailure = (response) => {
   console.log('sign up failure')
 }
 
 // add shows where applicable
 const signInSuccess = (data) => {
+  console.log(data)
   console.log('sign in success')
 
   // store the user object as per below
