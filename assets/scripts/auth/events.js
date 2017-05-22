@@ -6,8 +6,9 @@ const ui = require('./ui')
 
 // chains sign in to allow auto-sign in functionality
 const onSignUp = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .then(() => {
@@ -20,6 +21,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   const data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -29,6 +31,7 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
+  console.log(data)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -36,6 +39,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   const data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
   api.signOut(data)
     .then(ui.signOutSuccess)
