@@ -1,6 +1,5 @@
 'use strict'
 const store = require('../store.js')
-// const api = require('./api.js')
 
 const signUpSuccess = (data) => {
   console.log('sign up success')
@@ -42,6 +41,15 @@ const signOutFailure = () => {
   console.log('Sign out failure')
 }
 
+const emptyCartSuccess = (data) => {
+  console.log('cart update success')
+  console.log('cart UI:', data)
+}
+
+const emptyCartFailure = (response) => {
+  console.log('cart update failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -50,5 +58,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutFailure,
-  signOutSuccess
+  signOutSuccess,
+  emptyCartFailure,
+  emptyCartSuccess
 }
