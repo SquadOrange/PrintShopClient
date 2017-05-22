@@ -11,15 +11,50 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+    <body class="container-fluid">
+      <h1>Print Shop</h1>
+
+      <div class="sign-in-area">
+        <button id="register">register</button>
+        <button id="log-in">log in</button>
+
+        <form id="sign-up">
+          <fieldset>
+            <input type="text" name="credentials[email]" placeholder="email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+            <button class="reset" type="submit" name="submit" value="sign up">sign up</button>
+          </fieldset>
+        </form>
+        <div class="sign-up-error-message"></div>
+
+        <form id="sign-in">
+          <fieldset>
+            <input type="text" name="credentials[email]" placeholder="email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <button class="reset" type="submit" name="submit" value="sign in">sign in</button>
+          </fieldset>
+        </form>
+
+        <div class="signInErrorMessage"></div>
+      </div>
+
+      <div class="sign-out-area">
+        <button id="change-pwd" class="change-pwd-button">change password</button>
+        <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
+
+        <form id="change-password">
+          <fieldset>
+            <input type="password" name="passwords[old]" placeholder="old password">
+            <input type="password" name="passwords[new]" placeholder="new password">
+            <button type="submit" name="submit" value="change password">submit</button>
+          </fieldset>
+        </form>
+
+        <div class="change-pwd-success"></div>
+        <div class="change-pwd-error"></div>
+      </div>
+
     </body>
 </html>
