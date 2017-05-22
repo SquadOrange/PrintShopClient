@@ -15,8 +15,8 @@ const updateCart = (data) => {
       'buyer': {
         'cart': [{
           'quantity': data.cart.quantity,
-          'idNum': '4',
-          'purchased': 'true'
+          'idNum': store.printId,
+          'purchased': 'false'
         }]
       }
     }
