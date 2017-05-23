@@ -5,6 +5,16 @@ const store = require('../store.js')
 
 const titleArray = [ 'bento box', 'sushi roll', 'lego man', 'mini cactus', 'eclair', 'sriracha', 'terrarium', 'pineapple', 'platypus' ]
 
+const getCart = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/buyers',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateCart = (data) => {
   console.log('update cart ajax is sent:')
   console.log(data)
@@ -28,5 +38,6 @@ const updateCart = (data) => {
 }
 
 module.exports = {
+  getCart,
   updateCart
 }
