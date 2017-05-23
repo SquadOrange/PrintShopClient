@@ -3,7 +3,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const makeEmptyCart = () => {
+const updateCart = (data) => {
   console.log('update cart ajax is sent:')
   return $.ajax({
     url: config.apiOrigin + '/buyers',
@@ -14,8 +14,8 @@ const makeEmptyCart = () => {
     data: {
       'buyer': {
         'cart': [{
-          'quantity': 0,
-          'idNum': 9,
+          'quantity': data.cart.quantity,
+          'idNum': store.printId,
           'purchased': 'false'
         }]
       }
@@ -24,5 +24,5 @@ const makeEmptyCart = () => {
 }
 
 module.exports = {
-  makeEmptyCart
+  updateCart
 }
