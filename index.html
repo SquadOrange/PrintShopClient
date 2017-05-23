@@ -1,79 +1,200 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-    <body class="container-fluid">
-      <h1>Print Shop</h1>
+<body class="container-fluid">
+  <header>
+    <h1>Print Shop</h1>
+    <img class="tools" src="assets/images/paintbrush.png"/>
+    <img class="palette" src="assets/images/palette.png"/>
 
-      <div class="sign-in-area">
-        <button id="register">register</button>
-        <button id="log-in">log in</button>
+    <div class="sign-in-area">
+      <button id="register">register</button>
+      <button id="log-in">log in</button>
+<!--
+      <form id="sign-up">
+        <fieldset>
+          <input type="text" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+          <button class="reset" type="submit" name="submit" value="sign up">sign up</button>
+        </fieldset>
+      </form>
 
-        <form id="sign-up">
-          <fieldset>
-            <input type="text" name="credentials[email]" placeholder="email">
-            <input type="password" name="credentials[password]" placeholder="password">
-            <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-            <button class="reset" type="submit" name="submit" value="sign up">sign up</button>
-          </fieldset>
-        </form>
-        <div class="sign-up-error-message"></div>
+      <div class="sign-up-error-message"></div>
+      <form id="sign-in">
+        <fieldset>
+          <input type="text" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <button class="reset" type="submit" name="submit" value="sign in">sign in</button>
+        </fieldset>
+      </form>
 
-        <form id="sign-in">
-          <fieldset>
-            <input type="text" name="credentials[email]" placeholder="email">
-            <input type="password" name="credentials[password]" placeholder="password">
-            <button class="reset" type="submit" name="submit" value="sign in">sign in</button>
-          </fieldset>
-        </form>
+      <div class="signInErrorMessage"></div> -->
+    </div>
 
-        <div class="signInErrorMessage"></div>
+    <!-- <div class="sign-out-area">
+      <button id="change-pwd" class="change-pwd-button">change password</button>
+      <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
+
+      <form id="change-password">
+        <fieldset>
+          <input type="password" name="passwords[old]" placeholder="old password">
+          <input type="password" name="passwords[new]" placeholder="new password">
+          <button type="submit" name="submit" value="change password">submit</button>
+        </fieldset>
+      </form>
+
+      <div class="change-pwd-success"></div>
+      <div class="change-pwd-error"></div>
+    </div> -->
+  </header>
+
+  <div class="store-display">
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/0.png">
       </div>
+      <p class="print-name">bento box</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
 
-      <div class="sign-out-area">
-        <button id="change-pwd" class="change-pwd-button">change password</button>
-        <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
-
-        <form id="change-password">
-          <fieldset>
-            <input type="password" name="passwords[old]" placeholder="old password">
-            <input type="password" name="passwords[new]" placeholder="new password">
-            <button type="submit" name="submit" value="change password">submit</button>
-          </fieldset>
-        </form>
-
-        <div class="change-pwd-success"></div>
-        <div class="change-pwd-error"></div>
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/1.png">
       </div>
+      <p class="print-name">sushi roll</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
 
-<div class="store-display">
-  <div class="print" data-id="0" name=cart[idNum]>
-    <!-- Data id should be passed to the cart ID num to reference the object in the prints collection -->
-    <form data-id="0">
-      <fieldset>
-        <h2> Bento Box </h2>
-        <div class="picOne">
-        </div>
-        <span><p> Cost: $100 </p></span>
-        <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-        <button type="submit" name="submit" value="submit">Add to Cart</button>
-      </fieldset>
-    </form>
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/2.png">
+      </div>
+      <p class="print-name">lego man</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/3.png">
+      </div>
+      <p class="print-name">mini cactus</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/4.png">
+      </div>
+      <p class="print-name">eclair</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/5.png">
+      </div>
+      <p class="print-name">sriracha</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/6.png">
+      </div>
+      <p class="print-name">terrarium</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/7.png">
+      </div>
+      <p class="print-name">pineapple</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="print-container">
+      <div class="print-image-container">
+        <img class="print-image" src="assets/images/8.png">
+      </div>
+      <p class="print-name">platypus</p>
+        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+        <form data-id="0">
+        <fieldset>
+          <p>$100</p>
+          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit" name="submit" value="submit">Add to Cart</button>
+        </fieldset>
+      </form>
+    </div>
   </div>
-
-</div>
-
-
-
-    </body>
+</body>
 </html>

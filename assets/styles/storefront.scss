@@ -1,15 +1,95 @@
-div {
-  background-color: teal;
+html,
+body {
+  background: #FFEFD1;
+  font-family: 'Helvetica Neue';
+  font-size: 16px;
+  color: #BFB39D;
 }
 
-.picOne {
-  background: url(../images/0.png);
-  background-color: white;
-  font-size: 20px;
-  height: 100px;
-  width: 100px;
-  background-size: contain;
-	background-repeat: no-repeat;
-	background-position: left;
-
+header {
+  position: relative;
+  height: 50vh;
+  text-align: center;
+  overflow: hidden;
 }
+
+header h1 {
+  position: relative;
+  display: inline-block;
+  margin-top: 10vh;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #FFEFD1;
+  color: #403C34;
+  opacity: .8;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.tools,
+.palette {
+  position: absolute;
+}
+
+.tools {
+  left: 0;
+  height: 90%;
+}
+
+.palette {
+  right: 0;
+  height: 40vh;
+  transition: opacity .2s ease;
+}
+
+@media all and (max-width: 750px) {
+  .palette {
+    opacity: 0;
+  }
+}
+
+.store-display {
+  background: #272B47;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.print-container {
+  display: inline-block;
+  margin: 2rem;
+  width: 26vw;
+}
+
+
+.print-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 26vw;
+  margin-bottom: 1rem;
+  border: 1rem solid #FFEFD1;
+}
+
+.print-image {
+  max-width: 25vw;
+  max-height: 25vw;
+}
+
+p {
+  margin-bottom: .5rem;
+}
+
+// .picOne {
+//   background: url(../images/0.png);
+//   background-color: white;
+//   font-size: 20px;
+//   height: 100px;
+//   width: 100px;
+//   background-size: contain;
+// 	background-repeat: no-repeat;
+// 	background-position: left;
+// }
