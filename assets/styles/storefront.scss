@@ -1,9 +1,9 @@
 html,
 body {
   background: #FFEFD1;
-  font-family: 'Helvetica Neue';
-  font-size: 16px;
   color: #BFB39D;
+  font-family: 'PT Serif', serif;
+  font-size: 16px;
 }
 
 header {
@@ -14,14 +14,14 @@ header {
 }
 
 header h1 {
-  position: relative;
-  display: inline-block;
-  margin-top: 10vh;
   border-radius: 10px;
-  padding: 1rem;
-  background: #FFEFD1;
   color: #403C34;
-  opacity: .8;
+  display: inline-block;
+  font-size: 70px;
+  margin-top: 10vh;
+  opacity: .9;
+  padding: 1rem;
+  position: relative;
   z-index: 1;
 }
 
@@ -29,19 +29,19 @@ h1 {
   font-size: 4rem;
 }
 
-.tools,
+.paintbrush,
 .palette {
   position: absolute;
 }
 
-.tools {
-  left: 0;
+.paintbrush {
   height: 90%;
+  left: 0;
 }
 
 .palette {
-  right: 0;
   height: 40vh;
+  right: 0;
   transition: opacity .2s ease;
 }
 
@@ -53,8 +53,8 @@ h1 {
 
 .store-display {
   background: #272B47;
-  text-align: center;
   padding: 2rem 0;
+  text-align: center;
 }
 
 .print-container {
@@ -68,28 +68,31 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: #ffffff;
   height: 26vw;
   margin-bottom: 1rem;
   border: 1rem solid #FFEFD1;
 }
 
 .print-image {
-  max-width: 25vw;
   max-height: 25vw;
+  max-width: 25vw;
+}
+
+form {
+  position: relative;
+  z-index: 2;
+}
+
+input {
+  outline: none;
+}
+
+button:focus {
+  outline: 0;
 }
 
 p {
+  font-family: 'Open Sans', sans-serif;
   margin-bottom: .5rem;
 }
-
-// .picOne {
-//   background: url(../images/0.png);
-//   background-color: white;
-//   font-size: 20px;
-//   height: 100px;
-//   width: 100px;
-//   background-size: contain;
-// 	background-repeat: no-repeat;
-// 	background-position: left;
-// }
