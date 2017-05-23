@@ -5,6 +5,14 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
+const onGetCart = function (event) {
+  event.preventDefault()
+  console.log('getCart button clicked')
+  api.getCart()
+    .then(ui.getCartSuccess)
+    .catch(ui.getCartFailure)
+}
+
 const onUpdateCart = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -19,6 +27,7 @@ const onUpdateCart = function (event) {
 
 const addPrintHandlers = () => {
   $('.print-container').on('submit', onUpdateCart)
+  $('.cart-button').on('click', onGetCart)
 }
 
 module.exports = {
