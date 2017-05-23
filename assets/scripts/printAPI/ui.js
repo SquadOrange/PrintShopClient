@@ -2,16 +2,16 @@
 
 const store = require('../store.js')
 
-const emptyCartSuccess = (data) => {
+const updateCartSuccess = (data) => {
   console.log('cart update success')
   console.log('cart UI:', data)
 }
 
-const emptyCartFailure = (response) => {
+const updateCartFailure = (response) => {
   console.log('cart update failure')
 }
 
 module.exports = {
-  emptyCartSuccess,
-  emptyCartFailure
+  updateCartSuccess,
+  updateCartFailure
 }

@@ -42,12 +42,12 @@ const signOutFailure = () => {
 }
 
 const emptyCartSuccess = (data) => {
-  console.log('cart update success')
+  console.log('cart creation success')
   console.log('cart UI:', data)
 }
 
 const emptyCartFailure = (response) => {
-  console.log('cart update failure')
+  console.log('cart creation failure')
 }
 
 module.exports = {
