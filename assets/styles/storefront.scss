@@ -1,15 +1,98 @@
-div {
-  background-color: teal;
+html,
+body {
+  background: #FFEFD1;
+  color: #BFB39D;
+  font-family: 'PT Serif', serif;
+  font-size: 16px;
 }
 
-.picOne {
-  background: url(../images/0.png);
-  background-color: white;
-  font-size: 20px;
-  height: 100px;
-  width: 100px;
-  background-size: contain;
-	background-repeat: no-repeat;
-	background-position: left;
+header {
+  position: relative;
+  height: 50vh;
+  text-align: center;
+  overflow: hidden;
+}
 
+header h1 {
+  border-radius: 10px;
+  color: #403C34;
+  display: inline-block;
+  font-size: 70px;
+  margin-top: 10vh;
+  opacity: .9;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.paintbrush,
+.palette {
+  position: absolute;
+}
+
+.paintbrush {
+  height: 90%;
+  left: 0;
+}
+
+.palette {
+  height: 40vh;
+  right: 0;
+  transition: opacity .2s ease;
+}
+
+@media all and (max-width: 750px) {
+  .palette {
+    opacity: 0;
+  }
+}
+
+.store-display {
+  background: #272B47;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.print-container {
+  display: inline-block;
+  margin: 2rem;
+  width: 26vw;
+}
+
+
+.print-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  height: 26vw;
+  margin-bottom: 1rem;
+  border: 1rem solid #FFEFD1;
+}
+
+.print-image {
+  max-height: 25vw;
+  max-width: 25vw;
+}
+
+form {
+  position: relative;
+  z-index: 2;
+}
+
+input {
+  outline: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: .5rem;
 }
