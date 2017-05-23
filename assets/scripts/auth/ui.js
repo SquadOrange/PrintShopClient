@@ -44,6 +44,7 @@ const signOutFailure = () => {
 const emptyCartSuccess = (data) => {
   console.log('cart creation success')
   console.log('cart UI:', data)
+  store.buyerId = data.buyer._id
 }
 
 const emptyCartFailure = (response) => {
