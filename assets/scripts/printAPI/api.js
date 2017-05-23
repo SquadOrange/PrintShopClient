@@ -5,9 +5,10 @@ const store = require('../store.js')
 
 const updateCart = (data) => {
   console.log('update cart ajax is sent:')
+  console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/buyers',
-    method: 'POST',
+    url: config.apiOrigin + '/buyers/' + store.buyerId,
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
