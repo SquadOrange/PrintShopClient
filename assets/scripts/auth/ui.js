@@ -42,13 +42,13 @@ const signOutFailure = () => {
 }
 
 const emptyCartSuccess = (data) => {
-  console.log('cart creation success')
-  console.log('cart UI:', data)
+  console.log('empty cart creation success')
+  console.log('empty cart UI:', data)
   store.buyerId = data.buyer._id
 }
 
 const emptyCartFailure = (response) => {
-  console.log('cart creation failure')
+  console.log('empty cart creation failure')
 }
 
 module.exports = {

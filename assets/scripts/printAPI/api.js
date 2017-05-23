@@ -3,6 +3,8 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
+const titleArray = [ 'bento box', 'sushi roll', 'lego man', 'mini cactus', 'eclair', 'sriracha', 'terrarium', 'pineapple', 'platypus' ]
+
 const updateCart = (data) => {
   console.log('update cart ajax is sent:')
   console.log(data)
@@ -15,6 +17,7 @@ const updateCart = (data) => {
     data: {
       'buyer': {
         'cart': [{
+          'title': titleArray[store.printId],
           'quantity': data.cart.quantity,
           'idNum': store.printId,
           'purchased': 'false'
