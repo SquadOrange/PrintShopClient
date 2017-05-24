@@ -82,7 +82,7 @@ const makeCharge = function (token) {
   console.log('at make charge')
   return $.ajax({
     url: config.apiOrigin + '/charge',
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Authorization': 'Token token=' + store.user.token
     },
