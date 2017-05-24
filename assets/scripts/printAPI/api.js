@@ -37,7 +37,29 @@ const updateCart = (data) => {
   })
 }
 
+const removeItem = (data) => {
+  console.log('remove request initiated')
+  return $.ajax({
+    url: config.apiOrigin + '/buyers/' + store.buyerId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'buyer': {
+        'cart': [{
+          'title': titleArray[store.printId],
+          'quantity': 0,
+          'idNum': store.printId,
+          'purchased': 'false'
+        }]
+      }
+    }
+  })
+}
+
 module.exports = {
   getCart,
-  updateCart
+  updateCart,
+  removeItem
 }
