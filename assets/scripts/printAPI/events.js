@@ -59,22 +59,26 @@ const checkoutHandler = StripeCheckout.configure({
 })
 
 const handleToken = function (token) {
-  fetch('/charge', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(token)
-  })
+  api.makeCharge(token)
+  // fetch('/charge', {
+  //   method: 'POST',
+  //   headers: {'Content-Type': 'application/json'},
+  //   body: JSON.stringify(token)
+  // })
   .then(output => {
+    console.log(output)
     if (output.status === 'succeeded') {
-      document.getElementById('shop').innerHTML = '<p>Purhcase complete!</p>'
+      $('.purchaseConfirm').text('Purhcase complete!')
     }
   })
+  .then((response) => console.log('sucess', response))
+  .catch((response) => console.log('error', response))
 }
 
 const onCheckout = function (ev) {
   checkoutHandler.open({
     name: 'Sample Store',
-    description: 'Example Purchase',
+    description: 'Buying Prints',
     token: handleToken
   })
 }

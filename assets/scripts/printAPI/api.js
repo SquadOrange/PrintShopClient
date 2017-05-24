@@ -78,10 +78,23 @@ const removeItem = (data) => {
   })
 }
 
+const makeCharge = function (token) {
+  console.log('at make charge')
+  return $.ajax({
+    url: config.apiOrigin + '/charge',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: JSON.stringify(token)
+  })
+}
+
 module.exports = {
   getCart,
   updateCart,
   removeItem,
   getHistory,
-  getCartHas
+  getCartHas,
+  makeCharge
 }
