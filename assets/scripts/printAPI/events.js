@@ -37,10 +37,28 @@ const onRemove = function (event) {
     .catch(ui.removeItemFailure)
 }
 
+const onViewHistory = () => {
+  event.preventDefault()
+  console.log('getHistory button clicked')
+  api.getHistory()
+    .then(ui.getHistorySuccess)
+    .catch(ui.getHistoryFailure)
+}
+
+const onViewCartHas = () => {
+  event.preventDefault()
+  console.log('cartHas button clicked')
+  api.getCartHas()
+    .then(ui.cartHasSuccess)
+    .catch(ui.cartHasFailure)
+}
+
 const addPrintHandlers = () => {
   $('.print-container').on('submit', onUpdateCart)
   $('.cart-button').on('click', onGetCart)
   $('.remove').on('click', onRemove)
+  $('.purcashed-button').on('click', onViewHistory)
+  $('.cartHas-button').on('click', onViewCartHas)
 }
 
 module.exports = {

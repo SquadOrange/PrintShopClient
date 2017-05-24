@@ -15,6 +15,26 @@ const getCart = () => {
   })
 }
 
+const getHistory = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/buyers',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getCartHas = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/buyers',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateCart = (data) => {
   console.log('update cart ajax is sent:')
   console.log(data)
@@ -61,5 +81,7 @@ const removeItem = (data) => {
 module.exports = {
   getCart,
   updateCart,
-  removeItem
+  removeItem,
+  getHistory,
+  getCartHas
 }
