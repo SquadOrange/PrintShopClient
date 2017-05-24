@@ -8,7 +8,7 @@ body {
 
 header {
   position: relative;
-  height: 50vh;
+  height: 40vh;
   text-align: center;
   overflow: hidden;
 }
@@ -51,7 +51,7 @@ h1 {
   }
 }
 
-.cart {
+.alreadyPurchased, .cartHas {
   text-align: center;
 }
 
@@ -100,4 +100,19 @@ button:focus {
 p {
   font-family: 'Open Sans', sans-serif;
   margin-bottom: .5rem;
+}
+
+.hideBeforeLogin {
+  display: none;
+}
+
+.text-display {
+  font-size: 1.5rem;
+  color: #4c443a;
+}
+
+.cartHas-display,
+.purchase-display {
+  font-size: 1rem;
+  color: #4c443a;
 }

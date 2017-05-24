@@ -3,9 +3,9 @@
 const store = require('../store.js')
 
 const printCartHas = (data) => {
-  let newStringArray = '\n'
+  let newStringArray = '\r'
   for (const i in data.buyers[0].cartHas) {
-    newStringArray += (' ' + data.buyers[0].cartHas[i].title + ' ' + data.buyers[0].cartHas[i].quantity + '\n')
+    newStringArray += (' \r' + data.buyers[0].cartHas[i].quantity + ' ' + data.buyers[0].cartHas[i].title + ' print(s), ')
   }
   return newStringArray
 }
@@ -13,10 +13,10 @@ const printCartHas = (data) => {
 const cartHasSuccess = (data) => {
   console.log('got the history')
   if (data.buyers[0].cartHas.length === 0) {
-    $('.cartHas-display').text('there is nothing to buy! Buy stuff!!!')
+    $('.cartHas-display').text("Don't forget to buy some prints!")
   } else {
     console.log('the cart has ', data.buyers[0].cartHas)
-    $('.cartHas-display').text('the cart has: ' + printCartHas(data) + ' it costs: ' + data.buyers[0].cost)
+    $('.cartHas-display').text('Your cart has: ' + printCartHas(data) + ' Total Cost: $' + data.buyers[0].cost)
   }
 }
 
@@ -38,7 +38,7 @@ const getCartFailure = (response) => {
 const printHistory = (data) => {
   let newStringArray = '\n'
   for (const i in data.buyers[0].alreadyPurchased) {
-    newStringArray += (' ' + data.buyers[0].alreadyPurchased[i].title + ' ' + data.buyers[0].alreadyPurchased[i].quantity + '\n')
+    newStringArray += (' ' + data.buyers[0].alreadyPurchased[i].title + ', ' + 'Quantity: ' + data.buyers[0].alreadyPurchased[i].quantity + ' ')
   }
   return newStringArray
 }
@@ -46,7 +46,7 @@ const printHistory = (data) => {
 const getHistorySuccess = (data) => {
   console.log('got the history')
   console.log('the cart has ', data.buyers[0].alreadyPurchased)
-  $('.purchase-display').text('Purchase history is: ' + printHistory(data))
+  $('.purchase-display').text('Items you have purchased: ' + printHistory(data))
 }
 
 const getHistoryFailure = (response) => {

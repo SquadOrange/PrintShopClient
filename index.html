@@ -19,9 +19,9 @@
     <img class="paintbrush" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/paintbrush.png"/>
     <img class="palette" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/palette.png"/>
 
-    <div class="sign-in-area">
-      <button id="register">register</button>
-      <button id="log-in">log in</button>
+    <div class="sign-in-area hideAfterLogin">
+      <!-- <button id="register">register</button>
+      <button id="log-in">log in</button> -->
 
       <form id="sign-up">
         <fieldset>
@@ -32,7 +32,7 @@
         </fieldset>
       </form>
 
-      <div class="sign-up-error-message"></div>
+      <!-- <div class="sign-up-error-message"></div> -->
       <form id="sign-in">
         <fieldset>
           <input type="text" name="credentials[email]" placeholder="email">
@@ -41,37 +41,41 @@
         </fieldset>
       </form>
 
-      <div class="signInErrorMessage"></div>
+      <!-- <div class="signInErrorMessage"></div> -->
     </div>
 
-    <div class="sign-out-area">
-      <button id="change-pwd" class="change-pwd-button">change password</button>
-      <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
+    <div class="sign-out-area hideBeforeLogin showAfterLogin">
+      <!-- <button id="change-pwd" class="change-pwd-button">change password</button> -->
+      <!-- <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button> -->
 
       <form id="change-password">
         <fieldset>
           <input type="password" name="passwords[old]" placeholder="old password">
           <input type="password" name="passwords[new]" placeholder="new password">
-          <button type="submit" name="submit" value="change password">submit</button>
+          <button type="submit" name="submit" value="change password">change password</button>
+          <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
         </fieldset>
       </form>
 
-      <div class="change-pwd-success"></div>
-      <div class="change-pwd-error"></div>
+      <!-- <div class="change-pwd-success"></div>
+      <div class="change-pwd-error"></div> -->
     </div>
+
+    <h2 class="text-display">Welcome. Sign in to get started!</h2>
+
   </header>
 
-  <div class="cart">
+  <!-- <div class="cart">
     <button class="cart-button" type="submit" name="submit" value="submit">Check out</button>
     <div class="cart-display"></div>
-  </div>
+  </div> -->
 
-  <div class="alreadyPurchased">
+  <div class="alreadyPurchased hideBeforeLogin showAfterLogin">
     <button class="purcashed-button" type="submit" name="submit" value="submit">See Purchase History</button>
     <div class="purchase-display"></div>
   </div>
 
-  <div class="cartHas">
+  <div class="cartHas hideBeforeLogin showAfterLogin">
     <button class="cartHas-button" type="submit" name="submit" value="submit">View Cart</button>
     <div class="cartHas-display"></div>
     <div class="stripe-checkout">
@@ -91,9 +95,9 @@
         <form data-id="0">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="0" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="0" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -107,9 +111,9 @@
         <form data-id="1">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="1" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="1" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -123,9 +127,9 @@
         <form data-id="2">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="2"type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="2"type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -139,9 +143,9 @@
         <form data-id="3">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="3" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="3" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -155,9 +159,9 @@
         <form data-id="4">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="4" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="4" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -171,9 +175,9 @@
         <form data-id="5">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="5" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="5" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -187,9 +191,9 @@
         <form data-id="6">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="6" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="6" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -203,9 +207,9 @@
         <form data-id="7">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="7" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="7" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>
@@ -219,9 +223,9 @@
         <form data-id="8">
         <fieldset>
           <p>$100</p>
-          <input type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
-          <button type="submit" name="submit" value="submit">Add to Cart</button>
-          <button data-id="8" type="submit" class="remove" name="submit" value="submit">Remove from Cart</button>
+          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="0" min="0" max="10">
+          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <button data-id="8" type="submit" class="remove hideBeforeLogin showAfterLogin" name="submit" value="submit">Remove from Cart</button>
         </fieldset>
       </form>
     </div>

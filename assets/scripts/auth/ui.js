@@ -2,43 +2,50 @@
 const store = require('../store.js')
 
 const signUpSuccess = (data) => {
-  console.log('sign up success')
-  console.log(data)
+  $('input').val('')
 }
 
 const signUpFailure = (response) => {
-  console.log('sign up failure')
+  $('.text-display').text('Error Signing Up')
+  $('input').val('')
 }
 
 // add shows where applicable
 const signInSuccess = (data) => {
-  console.log(data)
-  console.log('sign in success')
+  $('.text-display').text('Thanks for signing in. Enjoy!')
+  $('.showAfterLogin').show()
+  $('.hideAfterLogin').hide()
+  $('input').val('')
 
   // store the user object as per below
   store.user = data.user
 }
 
 const signInFailure = () => {
-  console.log('sign in failure')
+  $('.text-display').text('Error Signing In')
+  $('input').val('')
 }
 
 const changePasswordSuccess = (data) => {
-  console.log('password change success')
+  $('.text-display').text('Password Changed Succesfuly')
+  $('input').val('')
 }
 
 const changePasswordFailure = () => {
-  console.log('password change failure')
+  $('.text-display').text('Error Changing Password')
+  $('input').val('')
 }
 
 const signOutSuccess = (data) => {
-  console.log('Sign out success')
+  $('.text-display').text('Thanks for shopping. Come back soon!')
+  $('.hideBeforeLogin').hide()
+  $('.hideAfterLogin').show()
   // store the user with a value of null as per below
   store.user = null
 }
 
 const signOutFailure = () => {
-  console.log('Sign out failure')
+  $('.text-display').text('Failure Signing Out')
 }
 
 const emptyCartSuccess = (data) => {
