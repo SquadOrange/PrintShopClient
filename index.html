@@ -74,6 +74,11 @@
   <div class="cartHas">
     <button class="cartHas-button" type="submit" name="submit" value="submit">View Cart</button>
     <div class="cartHas-display"></div>
+    <div class="stripe-checkout">
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+      <!-- Or we could move it to head of the html document?   -->
+      <button type="button" id="buttonCheckout" class="btn btn-primary">Checkout</button>
+    </div>
   </div>
 
   <div class="store-display">
@@ -222,4 +227,5 @@
     </div>
   </div>
 </body>
+
 </html>

@@ -7,7 +7,9 @@
     "content": "CC­BY­NC­SA 4.0"
   },
   "dependencies": {
-    "jquery": "^3.1.1"
+    "fetch": "^1.1.0",
+    "jquery": "^3.1.1",
+    "stripe": "^4.19.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

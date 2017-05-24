@@ -53,12 +53,39 @@ const onViewCartHas = () => {
     .catch(ui.cartHasFailure)
 }
 
+const checkoutHandler = StripeCheckout.configure({
+  key: 'pk_test_i1tYfJB6wVAjGr7vvXlkFZS7',
+  locale: 'auto'
+})
+
+const handleToken = function (token) {
+  fetch('/charge', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(token)
+  })
+  .then(output => {
+    if (output.status === 'succeeded') {
+      document.getElementById('shop').innerHTML = '<p>Purhcase complete!</p>'
+    }
+  })
+}
+
+const onCheckout = function (ev) {
+  checkoutHandler.open({
+    name: 'Sample Store',
+    description: 'Example Purchase',
+    token: handleToken
+  })
+}
+
 const addPrintHandlers = () => {
   $('.print-container').on('submit', onUpdateCart)
   $('.cart-button').on('click', onGetCart)
   $('.remove').on('click', onRemove)
   $('.purcashed-button').on('click', onViewHistory)
   $('.cartHas-button').on('click', onViewCartHas)
+  $('#buttonCheckout').on('click', onCheckout)
 }
 
 module.exports = {
