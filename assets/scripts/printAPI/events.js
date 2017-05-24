@@ -45,11 +45,20 @@ const onViewHistory = () => {
     .catch(ui.getHistoryFailure)
 }
 
+const onViewCartHas = () => {
+  event.preventDefault()
+  console.log('cartHas button clicked')
+  api.getCartHas()
+    .then(ui.cartHasSuccess)
+    .catch(ui.cartHasFailure)
+}
+
 const addPrintHandlers = () => {
   $('.print-container').on('submit', onUpdateCart)
   $('.cart-button').on('click', onGetCart)
   $('.remove').on('click', onRemove)
   $('.purcashed-button').on('click', onViewHistory)
+  $('.cartHas-button').on('click', onViewCartHas)
 }
 
 module.exports = {
