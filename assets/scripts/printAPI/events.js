@@ -25,9 +25,22 @@ const onUpdateCart = function (event) {
     .catch(ui.updateCartFailure)
 }
 
+const onRemove = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const idNum = $(event.target).attr('data-id')
+  store.printId = idNum
+  console.log('remove id num is ', idNum)
+  console.log('remove cart object:', data)
+  api.removeItem(data)
+    .then(ui.removeItemSuccess)
+    .catch(ui.removeItemFailure)
+}
+
 const addPrintHandlers = () => {
   $('.print-container').on('submit', onUpdateCart)
   $('.cart-button').on('click', onGetCart)
+  $('.remove').on('click', onRemove)
 }
 
 module.exports = {

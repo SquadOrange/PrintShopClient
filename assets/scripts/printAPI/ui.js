@@ -21,9 +21,20 @@ const updateCartFailure = (response) => {
   console.log('cart update failure')
 }
 
+const removeItemSuccess = (data) => {
+  console.log('removal success')
+  console.log('removal:', data)
+}
+
+const removeItemFailure = (response) => {
+  console.log('removal failure')
+}
+
 module.exports = {
   getCartSuccess,
   getCartFailure,
   updateCartSuccess,
-  updateCartFailure
+  updateCartFailure,
+  removeItemSuccess,
+  removeItemFailure
 }
