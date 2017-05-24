@@ -86,7 +86,7 @@ const makeCharge = function (token) {
     headers: {
       'Authorization': 'Token token=' + store.user.token
     },
-    data: JSON.stringify(token)
+    data: token
   })
 }
 
