@@ -71,8 +71,8 @@ const handleToken = function (token) {
       $('.purchaseConfirm').text('Purhcase complete!')
     }
   })
-  .then((response) => console.log('sucess', response))
-  .catch((response) => console.log('error', response))
+  .then(ui.tokenSuccess)
+  .catch(ui.tokenFailure)
 }
 
 const onCheckout = function (ev) {
