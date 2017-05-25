@@ -51,7 +51,7 @@ const makeEmptyCart = () => {
       'buyer': {
         'cart': [{
           'title': 'void',
-          'quantity': 4,
+          'quantity': 0,
           'idNum': 9,
           'purchased': 'true'
         }]

@@ -3,9 +3,9 @@
 const store = require('../store.js')
 
 const printCartHas = (data) => {
-  let newStringArray = '\r'
+  let newStringArray = '\r\n'
   for (const i in data.buyers[0].cartHas) {
-    newStringArray += (' \r' + data.buyers[0].cartHas[i].quantity + ' ' + data.buyers[0].cartHas[i].title + ' print(s), ')
+    newStringArray += (' \r\n' + data.buyers[0].cartHas[i].quantity + ' ' + data.buyers[0].cartHas[i].title + ' print(s), ')
   }
   return newStringArray
 }
@@ -45,8 +45,12 @@ const printHistory = (data) => {
 
 const getHistorySuccess = (data) => {
   console.log('got the history')
-  console.log('the cart has ', data.buyers[0].alreadyPurchased)
-  $('.purchase-display').text('Items you have purchased: ' + printHistory(data))
+  if (data.buyers[0].alreadyPurchased.length === 0) {
+    $('.purchase-display').text("You haven't bought anything yet")
+  } else {
+    console.log('the cart has ', data.buyers[0].alreadyPurchased)
+    $('.purchase-display').text('Items you have purchased: ' + printHistory(data))
+  }
 }
 
 const getHistoryFailure = (response) => {
@@ -72,6 +76,16 @@ const removeItemFailure = (response) => {
   console.log('removal failure')
 }
 
+const tokenSuccess = (data) => {
+  console.log('sucess', data)
+  $('.purchaseConfirm').text('you have successfully paid')
+}
+
+const tokenFailure = (response) => {
+  console.log('removal failure')
+  $('.purchaseConfirm').text('unable to process purchase')
+}
+
 module.exports = {
   getCartSuccess,
   getCartFailure,
@@ -82,5 +96,7 @@ module.exports = {
   getHistoryFailure,
   getHistorySuccess,
   cartHasSuccess,
-  cartHasFailure
+  cartHasFailure,
+  tokenSuccess,
+  tokenFailure
 }
