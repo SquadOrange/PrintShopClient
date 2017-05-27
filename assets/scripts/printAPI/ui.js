@@ -2,28 +2,41 @@
 
 const store = require('../store.js')
 
-const printCartHas = (data) => {
-  let newStringArray = '\r\n'
-  for (const i in data.buyers[0].cartHas) {
-    newStringArray += (' \r\n' + data.buyers[0].cartHas[i].quantity + ' ' + data.buyers[0].cartHas[i].title + ' print(s), ')
-  }
-  return newStringArray
+// const printCartHas = (data) => {
+//   let newStringArray = '\r\n'
+//   for (const i in data.buyers[0].cartHas) {
+//     newStringArray += (' \r\n' + data.buyers[0].cartHas[i].quantity + ' ' + data.buyers[0].cartHas[i].title + ' print(s), ')
+//   }
+//   return newStringArray
+// }
+
+const indexPrintsSuccess = (response) => {
+  console.log('get index prints')
+  console.log(response)
+  console.log(response.prints[0].title)
+  console.log(response.prints[1].quantity)
+  $('.cartHas-display').text(response.prints[0].title + response.prints[0].quantity)
 }
 
-const cartHasSuccess = (data) => {
-  console.log('got the history')
-  if (data.buyers[0].cartHas.length === 0) {
-    $('.cartHas-display').text("Don't forget to buy some prints!")
-  } else {
-    console.log('the cart has ', data.buyers[0].cartHas)
-    $('.cartHas-display').text('Your cart has: ' + printCartHas(data) + ' Total Cost: $' + data.buyers[0].cost)
-  }
+const indexPrintsFailure = (response) => {
+  console.log('cannot index cart')
+  $('.cartHas-display').text(response)
 }
 
-const cartHasFailure = (response) => {
-  console.log('cannot get cart')
-  $('.cartHas-display').text('nothing in the cart to display')
-}
+// const cartHasSuccess = (data) => {
+//   console.log('got the history')
+//   if (data.buyers[0].cartHas.length === 0) {
+//     $('.cartHas-display').text("Don't forget to buy some prints!")
+//   } else {
+//     console.log('the cart has ', data.buyers[0].cartHas)
+//     $('.cartHas-display').text('Your cart has: ' + printCartHas(data) + ' Total Cost: $' + data.buyers[0].cost)
+//   }
+// }
+//
+// const cartHasFailure = (response) => {
+//   console.log('cannot get cart')
+//   $('.cartHas-display').text('nothing in the cart to display')
+// }
 
 const getCartSuccess = (data) => {
   console.log('got a cart')
@@ -58,14 +71,23 @@ const getHistoryFailure = (response) => {
   $('.purchase-display').text('no purchase history to display')
 }
 
-const updateCartSuccess = (data) => {
-  console.log('cart update success')
-  console.log('cart UI:', data)
+const createPrintSuccess = (response) => {
+  console.log('created prints success')
+  console.log('create print response:', response)
 }
 
-const updateCartFailure = (response) => {
+const createPrintFailure = (response) => {
   console.log('cart update failure')
+  console.log(response)
 }
+
+// const updateCartSuccess = (data) => {
+//   console.log('cart update success')
+//   console.log('cart UI:', data)
+// }
+// const updateCartFailure = (response) => {
+//   console.log('cart update failure')
+// }
 
 const removeItemSuccess = (data) => {
   console.log('removal success')
@@ -89,14 +111,18 @@ const tokenFailure = (response) => {
 module.exports = {
   getCartSuccess,
   getCartFailure,
-  updateCartSuccess,
-  updateCartFailure,
+  // updateCartSuccess,
+  // updateCartFailure,
   removeItemSuccess,
   removeItemFailure,
   getHistoryFailure,
   getHistorySuccess,
-  cartHasSuccess,
-  cartHasFailure,
+  // cartHasSuccess,
+  // cartHasFailure,
   tokenSuccess,
-  tokenFailure
+  tokenFailure,
+  createPrintFailure,
+  createPrintSuccess,
+  indexPrintsFailure,
+  indexPrintsSuccess
 }

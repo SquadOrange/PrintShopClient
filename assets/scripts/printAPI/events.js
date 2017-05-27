@@ -13,17 +13,29 @@ const onGetCart = function (event) {
     .catch(ui.getCartFailure)
 }
 
-const onUpdateCart = function (event) {
+const onCreatePrint = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   const idNum = $(event.target).attr('data-id')
   store.printId = idNum
   console.log('id num:', idNum)
-  console.log('cart object:', data)
-  api.updateCart(data)
-    .then(ui.updateCartSuccess)
-    .catch(ui.updateCartFailure)
+  console.log('print object:', data)
+  api.createPrint(data)
+    .then(ui.createPrintSuccess)
+    .catch(ui.createPrintFailure)
 }
+
+// const onUpdateCart = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   const idNum = $(event.target).attr('data-id')
+//   store.printId = idNum
+//   console.log('id num:', idNum)
+//   console.log('cart object:', data)
+//   api.updateCart(data)
+//     .then(ui.updateCartSuccess)
+//     .catch(ui.updateCartFailure)
+// }
 
 const onRemove = function (event) {
   event.preventDefault()
@@ -45,13 +57,22 @@ const onViewHistory = () => {
     .catch(ui.getHistoryFailure)
 }
 
-const onViewCartHas = () => {
+const onIndexPrints = () => {
   event.preventDefault()
-  console.log('cartHas button clicked')
-  api.getCartHas()
-    .then(ui.cartHasSuccess)
-    .catch(ui.cartHasFailure)
+  console.log('index prints button clicked')
+  api.indexPrints()
+    .then(ui.indexPrintsSuccess)
+    .catch(ui.indexPrintsFailure)
 }
+
+// const onViewCartHas = () => {
+//   event.preventDefault()
+//   console.log('cartHas button clicked')
+//   api.getCartHas()
+//     .then(ui.cartHasSuccess)
+//     .catch(ui.cartHasFailure)
+// }
+
 
 // Stripe
 const checkoutHandler = StripeCheckout.configure({
@@ -82,11 +103,17 @@ const onCheckout = function (ev) {
 }
 
 const addPrintHandlers = () => {
-  $('.print-container').on('submit', onUpdateCart)
+  // this is what will now post to make a new print
+  // $('.print-container').on('submit', onUpdateCart)
+  $('.print-container').on('submit', onCreatePrint)
   $('.cart-button').on('click', onGetCart)
   $('.remove').on('click', onRemove)
   $('.purcashed-button').on('click', onViewHistory)
-  $('.cartHas-button').on('click', onViewCartHas)
+
+  // index of all prints which belong to the user
+  $('.cartHas-button').on('click', onIndexPrints)
+  // $('.cartHas-button').on('click', onViewCartHas)
+  // $('.cartHas-button').on('click', onViewCartHas)
   // stripe checkout
   $('#buttonCheckout').on('click', onCheckout)
 }
