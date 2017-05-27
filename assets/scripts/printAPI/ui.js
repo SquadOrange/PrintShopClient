@@ -1,6 +1,6 @@
 'use strict'
-
 const store = require('../store.js')
+const showPrintsTemplate = require('../templates/index-prints.handlebars')
 
 // const printCartHas = (data) => {
 //   let newStringArray = '\r\n'
@@ -11,11 +11,13 @@ const store = require('../store.js')
 // }
 
 const indexPrintsSuccess = (response) => {
+  const indexPrintsHtml = showPrintsTemplate({ prints: response.prints })
+  $('.cartHas-display').append(indexPrintsHtml)
   console.log('get index prints')
   console.log(response)
-  console.log(response.prints[0].title)
-  console.log(response.prints[1].quantity)
-  $('.cartHas-display').text(response.prints[0].title + response.prints[0].quantity)
+  // console.log(response.prints[0].title)
+  // console.log(response.prints[1].quantity)
+  // $('.cartHas-display').text(response.prints[0].title + response.prints[0].quantity)
 }
 
 const indexPrintsFailure = (response) => {
