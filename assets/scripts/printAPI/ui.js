@@ -58,14 +58,23 @@ const getHistoryFailure = (response) => {
   $('.purchase-display').text('no purchase history to display')
 }
 
-const updateCartSuccess = (data) => {
-  console.log('cart update success')
-  console.log('cart UI:', data)
+const createPrintSuccess = (response) => {
+  console.log('created prints success')
+  console.log('create print response:', response)
 }
 
-const updateCartFailure = (response) => {
+const createPrintFailure = (response) => {
   console.log('cart update failure')
+  console.log(response)
 }
+
+// const updateCartSuccess = (data) => {
+//   console.log('cart update success')
+//   console.log('cart UI:', data)
+// }
+// const updateCartFailure = (response) => {
+//   console.log('cart update failure')
+// }
 
 const removeItemSuccess = (data) => {
   console.log('removal success')
@@ -89,8 +98,8 @@ const tokenFailure = (response) => {
 module.exports = {
   getCartSuccess,
   getCartFailure,
-  updateCartSuccess,
-  updateCartFailure,
+  // updateCartSuccess,
+  // updateCartFailure,
   removeItemSuccess,
   removeItemFailure,
   getHistoryFailure,
@@ -98,5 +107,7 @@ module.exports = {
   cartHasSuccess,
   cartHasFailure,
   tokenSuccess,
-  tokenFailure
+  tokenFailure,
+  createPrintFailure,
+  createPrintSuccess
 }
