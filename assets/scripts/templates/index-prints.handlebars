@@ -1,0 +1,14 @@
+{{#each prints as |print|}}
+
+  <!-- {{> partial}} -->
+
+  <ul data-id="{{print.id}}">
+    <div class="hideMe">
+    <li>{{print.title}} {{print.quantity}} {{print.id}}
+      <input type="number" name="print[quantity]" placeholder="0" min="0" max="10">
+      <button data-id="{{print.id}}">EDIT</button>
+      <button data-id="{{print.id}}">REMOVE</button></li>
+  </div>
+</ul>
+
+{{/each}}
