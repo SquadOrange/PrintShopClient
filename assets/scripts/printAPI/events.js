@@ -53,18 +53,15 @@ const onViewCartHas = () => {
     .catch(ui.cartHasFailure)
 }
 
+// Stripe
 const checkoutHandler = StripeCheckout.configure({
   key: 'pk_test_i1tYfJB6wVAjGr7vvXlkFZS7',
   locale: 'auto'
 })
 
+// Stripe checkout
 const handleToken = function (token) {
   api.makeCharge(token)
-  // fetch('/charge', {
-  //   method: 'POST',
-  //   headers: {'Content-Type': 'application/json'},
-  //   body: JSON.stringify(token)
-  // })
   .then(output => {
     console.log(output)
     if (output.status === 'succeeded') {
@@ -75,6 +72,7 @@ const handleToken = function (token) {
   .catch(ui.tokenFailure)
 }
 
+// StripeCheckout functions
 const onCheckout = function (ev) {
   checkoutHandler.open({
     name: 'Sample Store',
@@ -89,6 +87,7 @@ const addPrintHandlers = () => {
   $('.remove').on('click', onRemove)
   $('.purcashed-button').on('click', onViewHistory)
   $('.cartHas-button').on('click', onViewCartHas)
+  // stripe checkout
   $('#buttonCheckout').on('click', onCheckout)
 }
 
