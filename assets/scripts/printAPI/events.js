@@ -37,17 +37,29 @@ const onCreatePrint = function (event) {
 //     .catch(ui.updateCartFailure)
 // }
 
-const onRemove = function (event) {
+const onUpdatePrint = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   const idNum = $(event.target).attr('data-id')
   store.printId = idNum
   console.log('remove id num is ', idNum)
   console.log('remove cart object:', data)
-  api.removeItem(data)
-    .then(ui.removeItemSuccess)
-    .catch(ui.removeItemFailure)
+  api.updatePrint(data)
+    .then(ui.updatePrintSuccess)
+    .catch(ui.updatePrintFailure)
 }
+
+// const onRemove = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   const idNum = $(event.target).attr('data-id')
+//   store.printId = idNum
+//   console.log('remove id num is ', idNum)
+//   console.log('remove cart object:', data)
+//   api.removeItem(data)
+//     .then(ui.removeItemSuccess)
+//     .catch(ui.removeItemFailure)
+// }
 
 const onViewHistory = () => {
   event.preventDefault()
@@ -62,6 +74,9 @@ const onIndexPrints = () => {
   console.log('index prints button clicked')
   api.indexPrints()
     .then(ui.indexPrintsSuccess)
+      // .then(() => {
+      //
+      // })
     .catch(ui.indexPrintsFailure)
 }
 
@@ -72,7 +87,6 @@ const onIndexPrints = () => {
 //     .then(ui.cartHasSuccess)
 //     .catch(ui.cartHasFailure)
 // }
-
 
 // Stripe
 const checkoutHandler = StripeCheckout.configure({
@@ -107,7 +121,8 @@ const addPrintHandlers = () => {
   // $('.print-container').on('submit', onUpdateCart)
   $('.print-container').on('submit', onCreatePrint)
   $('.cart-button').on('click', onGetCart)
-  $('.remove').on('click', onRemove)
+  $('.update-quantity').on('click', onUpdatePrint)
+  // $('.remove').on('click', onRemove)
   $('.purcashed-button').on('click', onViewHistory)
 
   // index of all prints which belong to the user

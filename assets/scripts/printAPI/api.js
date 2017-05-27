@@ -87,10 +87,10 @@ const createPrint = (data) => {
 //   })
 // }
 
-const removeItem = (data) => {
+const updatePrint = (data) => {
   console.log('remove request initiated')
   return $.ajax({
-    url: config.apiOrigin + '/buyers/' + store.buyerId,
+    url: config.apiOrigin + '/prints/' + store.buyerId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -108,6 +108,27 @@ const removeItem = (data) => {
   })
 }
 
+// const removeItem = (data) => {
+//   console.log('remove request initiated')
+//   return $.ajax({
+//     url: config.apiOrigin + '/buyers/' + store.buyerId,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//       'buyer': {
+//         'cart': [{
+//           'title': titleArray[store.printId],
+//           'quantity': 0,
+//           'idNum': store.printId,
+//           'purchased': 'false'
+//         }]
+//       }
+//     }
+//   })
+// }
+
 const makeCharge = function (token) {
   console.log('at make charge')
   return $.ajax({
@@ -123,10 +144,11 @@ const makeCharge = function (token) {
 module.exports = {
   getCart,
   // updateCart,
-  removeItem,
+  // removeItem,
   getHistory,
   // getCartHas,
   makeCharge,
   createPrint,
-  indexPrints
+  indexPrints,
+  updatePrint
 }

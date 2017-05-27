@@ -15,11 +15,11 @@ const onSignUp = function (event) {
     .then(() => {
       api.signIn(data)
         .then(ui.signInSuccess)
-        .then(() => {
-          api.makeEmptyCart()
-          .then(ui.emptyCartSuccess)
-          .catch(ui.emptyCartFailure)
-        })
+        // .then(() => {
+        //   api.makeEmptyCart()
+        //   .then(ui.emptyCartSuccess)
+        //   .catch(ui.emptyCartFailure)
+        // })
         .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
