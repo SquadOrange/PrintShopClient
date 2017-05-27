@@ -89,14 +89,23 @@ const createPrintFailure = (response) => {
 //   console.log('cart update failure')
 // }
 
-const removeItemSuccess = (data) => {
+const updatePrintSuccess = (data) => {
   console.log('removal success')
   console.log('removal:', data)
 }
 
-const removeItemFailure = (response) => {
+const updatePrintFailure = (response) => {
   console.log('removal failure')
 }
+
+// const removeItemSuccess = (data) => {
+//   console.log('removal success')
+//   console.log('removal:', data)
+// }
+//
+// const removeItemFailure = (response) => {
+//   console.log('removal failure')
+// }
 
 const tokenSuccess = (data) => {
   console.log('sucess', data)
@@ -113,8 +122,8 @@ module.exports = {
   getCartFailure,
   // updateCartSuccess,
   // updateCartFailure,
-  removeItemSuccess,
-  removeItemFailure,
+  // removeItemSuccess,
+  // removeItemFailure,
   getHistoryFailure,
   getHistorySuccess,
   // cartHasSuccess,
@@ -124,5 +133,7 @@ module.exports = {
   createPrintFailure,
   createPrintSuccess,
   indexPrintsFailure,
-  indexPrintsSuccess
+  indexPrintsSuccess,
+  updatePrintFailure,
+  updatePrintSuccess
 }
