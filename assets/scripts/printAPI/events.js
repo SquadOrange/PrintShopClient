@@ -57,13 +57,21 @@ const onViewHistory = () => {
     .catch(ui.getHistoryFailure)
 }
 
-const onViewCartHas = () => {
+const onIndexPrints = () => {
   event.preventDefault()
-  console.log('cartHas button clicked')
-  api.getCartHas()
-    .then(ui.cartHasSuccess)
-    .catch(ui.cartHasFailure)
+  console.log('index prints button clicked')
+  api.indexPrints()
+    .then(ui.indexPrintsSuccess)
+    .catch(ui.indexPrintsFailure)
 }
+
+// const onViewCartHas = () => {
+//   event.preventDefault()
+//   console.log('cartHas button clicked')
+//   api.getCartHas()
+//     .then(ui.cartHasSuccess)
+//     .catch(ui.cartHasFailure)
+// }
 
 const checkoutHandler = StripeCheckout.configure({
   key: 'pk_test_i1tYfJB6wVAjGr7vvXlkFZS7',
@@ -102,7 +110,9 @@ const addPrintHandlers = () => {
   $('.cart-button').on('click', onGetCart)
   $('.remove').on('click', onRemove)
   $('.purcashed-button').on('click', onViewHistory)
-  $('.cartHas-button').on('click', onViewCartHas)
+  // index of all prints which belong to the user
+  $('.cartHas-button').on('click', onIndexPrints)
+  // $('.cartHas-button').on('click', onViewCartHas)
   $('#buttonCheckout').on('click', onCheckout)
 }
 

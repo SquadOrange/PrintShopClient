@@ -25,15 +25,25 @@ const getHistory = () => {
   })
 }
 
-const getCartHas = () => {
+const indexPrints = () => {
   return $.ajax({
-    url: config.apiOrigin + '/buyers',
+    url: config.apiOrigin + '/prints',
     method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token
     }
   })
 }
+
+// const getCartHas = () => {
+//   return $.ajax({
+//     url: config.apiOrigin + '/buyers',
+//     method: 'GET',
+//     headers: {
+//       'Authorization': 'Token token=' + store.user.token
+//     }
+//   })
+// }
 
 const createPrint = (data) => {
   console.log('update cart ajax is sent:')
@@ -115,7 +125,8 @@ module.exports = {
   // updateCart,
   removeItem,
   getHistory,
-  getCartHas,
+  // getCartHas,
   makeCharge,
-  createPrint
+  createPrint,
+  indexPrints
 }
