@@ -1,14 +1,29 @@
-{{#each prints as |print|}}
 
   <!-- {{> partial}} -->
 
-  <ul data-id="{{print.id}}">
-    <div class="hideMe">
-    <li>{{print.title}} {{print.quantity}} {{print.id}}
-      <input type="number" name="print[quantity]" placeholder="0" min="0" max="10">
-      <button data-id="{{print.id}}">EDIT</button>
-      <button data-id="{{print.id}}">REMOVE</button></li>
-  </div>
-</ul>
+  <table class="cart-handlebars" data-id="{{print.id}}">
+    <thead>
+      <tr>
+        <th>Print</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
 
-{{/each}}
+    <tbody>
+      {{#each prints as |print|}}
+      <tr>
+        <td>{{print.title}}</td>
+        <td>{{print.quantity}}</td>
+        <td>
+          <input type="number" name="print[quantity]" placeholder="0" min="0" max="10">
+        </td>
+        <td>
+          <button data-id="{{print.id}}">edit</button>
+        </td>
+        <td>
+          <button data-id="{{print.id}}">remove</button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
