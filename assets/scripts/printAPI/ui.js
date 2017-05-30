@@ -1,15 +1,22 @@
 'use strict'
-// const store = require('../store.js')
+const store = require('../store.js')
 const showPrintsTemplate = require('../templates/index-prints.handlebars')
 const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const indexPrintsSuccess = (response) => {
-  const indexPrintsHtml = showPrintsTemplate({ prints: response.prints })
-  $('.cartHas-display').html(indexPrintsHtml)
-  $('.remove-print-button').on('click', removePrint)
-  $('.update-print-button').on('submit', updatePrint)
-  console.log('index successful:', response)
+  store.indexOfPrints = response
+  if (response.prints.length === 0) {
+    $('.cartHas-display').html("Don't forget to add some prints!")
+  } else {
+    const indexPrintsHtml = showPrintsTemplate({
+      prints: response.prints
+    })
+    $('.cartHas-display').html(indexPrintsHtml)
+    $('.remove-print-button').on('click', removePrint)
+    $('.update-print-button').on('submit', updatePrint)
+    console.log('index successful:', response)
+  }
 }
 
 const indexPrintsFailure = (response) => {
@@ -77,7 +84,9 @@ const createPrintSuccess = (response) => {
 }
 
 const createPrintFailure = (response) => {
-  console.log('cart update failure', response)
+  console.log('print create failure', response)
+  console.log('cannot add zero prints, please select a valid quantity')
+  $('.text-display').text('Cannot add zero prints, please select a valid quantity')
 }
 
 const tokenSuccess = (data) => {
