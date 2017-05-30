@@ -31,6 +31,13 @@ const removePrint = (event) => {
   const findId = $(event.target).attr('data-id')
   api.removeById(findId)
     .then(removePrintSuccess)
+//     .catch(removeprintFailure)
+// }
+    .then(() => {
+      api.indexPrints()
+        .then(indexPrintsSuccess)
+        .catch(indexPrintsFailure)
+    })
     .catch(removeprintFailure)
 }
 
