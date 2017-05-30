@@ -13,7 +13,7 @@ const api = require('./api.js')
 
 const indexPrintsSuccess = (response) => {
   const indexPrintsHtml = showPrintsTemplate({ prints: response.prints })
-  $('.cartHas-display').append(indexPrintsHtml)
+  $('.cartHas-display').html(indexPrintsHtml)
   $('.remove-print-button').on('click', removePrint)
   console.log('get index prints')
   console.log(response)
