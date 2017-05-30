@@ -23,6 +23,11 @@ const onCreatePrint = function (event) {
   api.createPrint(data)
     .then(ui.createPrintSuccess)
     .catch(ui.createPrintFailure)
+    .then(() => {
+      api.indexPrints()
+        .then(ui.indexPrintsSuccess)
+        .catch(ui.indexPrintsFailure)
+    })
 }
 
 // const onUpdateCart = function (event) {
