@@ -1,0 +1,35 @@
+.cart-handlebars {
+  font-family: 'Open Sans', sans-serif;
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 1px solid #F0EAD0;
+  border-bottom: 2px solid #668578;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .10),
+     0 10px 20px rgba(0 ,0, 0, .05),
+     0 20px 20px rgba(0, 0, 0, .05),
+     0 30px 20px rgba(0, 0,0, .05);
+  tr {
+     &:hover {
+      background: #f4f4f4;
+
+      td {
+        color: #555;
+      }
+    }
+  }
+  th, td {
+    border: 1px solid #F0EAD0;
+    border-collapse: collapse;
+    color: #999;
+    padding: 12px 35px;
+  }
+  th {
+    background: #668578;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    &.last {
+      border-right: none;
+    }
+  }
+}
