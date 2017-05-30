@@ -14,9 +14,11 @@ const onGetCart = function (event) {
 
 const onCreatePrint = function (event) {
   event.preventDefault()
+  console.log(store.indexOfPrints)
   const data = getFormFields(event.target)
-  const idNum = $(event.target).attr('data-id')
-  store.printId = idNum
+  // stores unique id for later use
+  const printId = $(event.target).attr('data-id')
+  store.printId = printId
   api.createPrint(data)
     .then(ui.createPrintSuccess)
     .catch(ui.createPrintFailure)
