@@ -15,13 +15,15 @@
         <td>{{print.title}}</td>
         <td>{{print.quantity}}</td>
         <td>
+          <form data-id="{{print.id}}" class="update-print-button">
+            <fieldset>
           <input type="number" name="print[quantity]" placeholder="0" min="0" max="10">
+          <button type="submit">edit</button>
+        </fieldset>
+        </form>
         </td>
         <td>
-          <button data-id="{{print.id}}">edit</button>
-        </td>
-        <td>
-          <button class="remove-print-button" data-id="{{print.id}}">remove</button>
+          <button class="remove-print-button"  data-id="{{print.id}}">remove</button>
         </td>
       </tr>
       {{/each}}
