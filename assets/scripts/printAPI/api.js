@@ -129,6 +129,17 @@ const updatePrint = (data) => {
 //   })
 // }
 
+const removeById = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/prints/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const makeCharge = function (token) {
   console.log('at make charge')
   return $.ajax({
@@ -150,5 +161,6 @@ module.exports = {
   makeCharge,
   createPrint,
   indexPrints,
-  updatePrint
+  updatePrint,
+  removeById
 }

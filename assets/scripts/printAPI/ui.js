@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store.js')
 const showPrintsTemplate = require('../templates/index-prints.handlebars')
+const api = require('./api.js')
 
 // const printCartHas = (data) => {
 //   let newStringArray = '\r\n'
@@ -12,7 +13,8 @@ const showPrintsTemplate = require('../templates/index-prints.handlebars')
 
 const indexPrintsSuccess = (response) => {
   const indexPrintsHtml = showPrintsTemplate({ prints: response.prints })
-  $('.cartHas-display').append(indexPrintsHtml)
+  $('.cartHas-display').html(indexPrintsHtml)
+  $('.remove-print-button').on('click', removePrint)
   console.log('get index prints')
   console.log(response)
   // console.log(response.prints[0].title)
@@ -25,6 +27,24 @@ const indexPrintsFailure = (response) => {
   $('.cartHas-display').text(response)
 }
 
+const removePrint = (event) => {
+  const findId = $(event.target).attr('data-id')
+  api.removeById(findId)
+    .then(removePrintSuccess)
+    .then(() => {
+      api.indexPrints()
+        .then(indexPrintsSuccess)
+        .catch(indexPrintsFailure)
+    })
+    .catch(removeprintFailure)
+}
+
+const removePrintSuccess = (response) => {
+  console.log('Prints removed')
+}
+const removeprintFailure = (response) => {
+  console.log('error removing print')
+}
 // const cartHasSuccess = (data) => {
 //   console.log('got the history')
 //   if (data.buyers[0].cartHas.length === 0) {
@@ -137,5 +157,6 @@ module.exports = {
   indexPrintsFailure,
   indexPrintsSuccess,
   updatePrintFailure,
-  updatePrintSuccess
+  updatePrintSuccess,
+  removePrint
 }
