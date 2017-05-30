@@ -19,6 +19,7 @@ const onCreatePrint = function (event) {
   // stores unique id for later use
   const printId = $(event.target).attr('data-id')
   store.printId = printId
+  // check with store.indexOfPrints to see if object already exsist with data-id on this button
   api.createPrint(data)
     .then(ui.createPrintSuccess)
     .catch(ui.createPrintFailure)
