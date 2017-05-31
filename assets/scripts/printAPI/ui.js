@@ -73,15 +73,10 @@ const removeprintFailure = (response) => {
   console.log('error updating print')
 }
 
-// const getHistorySuccess = (data) => {
-//   console.log('got the history')
-//   if (data.buyers[0].alreadyPurchased.length === 0) {
-//     $('.purchase-display').text("You haven't bought anything yet")
-//   } else {
-//     console.log('the cart has ', data.buyers[0].alreadyPurchased)
-//     $('.purchase-display').text('Items you have purchased: ' + printHistory(data))
-//   }
-// }
+const getHistorySuccess = (data) => {
+  console.log('got the history')
+  $('.purchase-display').text('successful')
+}
 
 const getHistoryFailure = (response) => {
   $('.purchase-display').text('no purchase history to display')
@@ -111,7 +106,7 @@ const tokenFailure = (response) => {
 
 module.exports = {
   getHistoryFailure,
-  // getHistorySuccess,
+  getHistorySuccess,
   tokenSuccess,
   tokenFailure,
   createPrintFailure,

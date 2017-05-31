@@ -17,7 +17,7 @@ const getCart = () => {
 
 const getHistory = () => {
   return $.ajax({
-    url: config.apiOrigin + '/buyers',
+    url: config.apiOrigin + '/purchased',
     method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token

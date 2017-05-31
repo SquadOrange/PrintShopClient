@@ -54,7 +54,7 @@ const onCreatePrint = function (event) {
           .then(ui.indexPrintsSuccess)
           .catch(ui.indexPrintsFailure)
       })
-    }
+  }
 }
 
 const onUpdatePrint = function (event) {
