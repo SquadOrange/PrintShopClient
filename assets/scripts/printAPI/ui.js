@@ -79,12 +79,15 @@ const getHistoryFailure = (response) => {
   $('.purchase-display').text('no purchase history to display')
 }
 
-const createPrintSuccess = (response) => {
-  console.log('create print response:', response)
+const createPrintSuccess = (target) => {
+  console.log('create print target:', target)
+  $('<p>Successfully added to cart!</p>').appendTo(target)
+  $(target).find('input').hide()
+  $(target).find('button').hide()
 }
 
-const createPrintFailure = (response) => {
-  console.log('print create failure', response)
+const createPrintFailure = (target) => {
+  console.log('print create failure', target)
   console.log('cannot add zero prints, please select a valid quantity')
   $('.text-display').text('Cannot add zero prints, please select a valid quantity')
 }
