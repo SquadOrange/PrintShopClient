@@ -21,7 +21,7 @@ const onCreatePrint = function (event) {
   store.printId = printId
   // check with store.indexOfPrints to see if object already exsist with data-id on this button
   api.createPrint(data)
-    .then(ui.createPrintSuccess)
+    .then(ui.createPrintSuccess(event.target))
     .catch(ui.createPrintFailure)
     .then(() => {
       api.indexPrints()
