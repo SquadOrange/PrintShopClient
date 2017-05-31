@@ -6,7 +6,6 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const indexPrintsSuccess = (response) => {
   store.indexOfPrints = response
-  console.log('index of prints is in store is:', store.indexOfPrints)
   if (response.prints.length === 0) {
     $('.cartHas-display').html("Don't forget to add some prints!")
   } else {
@@ -16,7 +15,6 @@ const indexPrintsSuccess = (response) => {
     $('.cartHas-display').html(indexPrintsHtml)
     $('.remove-print-button').on('click', removePrint)
     $('.update-print-button').on('submit', updatePrint)
-    console.log('index successful:', response)
   }
 }
 
@@ -76,12 +74,11 @@ const removeprintFailure = (response) => {
 // }
 
 const getHistoryFailure = (response) => {
-  console.log('cannot get cart')
   $('.purchase-display').text('no purchase history to display')
 }
 
 const createPrintSuccess = (target) => {
-  console.log('create print target:', target)
+  console.log('In create success, create print target:', target)
   $('<p>Successfully added to cart!</p>').appendTo(target)
 }
 
@@ -89,6 +86,7 @@ const createPrintFailure = (target) => {
   console.log('print create failure', target)
   console.log('cannot add zero prints, please select a valid quantity')
   $('.text-display').text('Cannot add zero prints, please select a valid quantity')
+  $('<p>Cannot add zero prints, please select a valid quantity</p>').appendTo(target)
 }
 
 const tokenSuccess = (data) => {

@@ -5,7 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
-const onGetCart = function(event) {
+const onGetCart = function (event) {
   event.preventDefault()
   api.getCart()
     .then(ui.getCartSuccess)
@@ -36,7 +36,6 @@ const isPrintAlreadyInCart = function (printArray, printId) {
 
 const onCreatePrint = function (event) {
   event.preventDefault()
-  console.log('prints we have are: ', store.indexOfPrints)
   const printArray = store.indexOfPrints
   const data = getFormFields(event.target)
   // stores unique id for later use
@@ -48,8 +47,8 @@ const onCreatePrint = function (event) {
   } else {
     console.log('it is not in the array')
     api.createPrint(data)
-      .then(ui.createPrintSuccess(event.target))
-      .catch(ui.createPrintFailure)
+      .then(() => { ui.createPrintSuccess(event.target) })
+      .catch(() => { ui.createPrintFailure(event.target) })
       .then(() => {
         api.indexPrints()
           .then(ui.indexPrintsSuccess)
