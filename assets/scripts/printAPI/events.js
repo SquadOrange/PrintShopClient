@@ -48,14 +48,14 @@ const onCreatePrint = function (event) {
   } else {
     console.log('it is not in the array')
     api.createPrint(data)
-      .then(ui.createPrintSuccess)
+      .then(ui.createPrintSuccess(event.target))
       .catch(ui.createPrintFailure)
       .then(() => {
         api.indexPrints()
           .then(ui.indexPrintsSuccess)
           .catch(ui.indexPrintsFailure)
       })
-  }
+    }
 }
 
 const onUpdatePrint = function (event) {
