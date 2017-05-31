@@ -97,7 +97,8 @@ button:focus {
   outline: 0;
 }
 
-p {
+p,
+.total-cost-display {
   font-family: 'Open Sans', sans-serif;
   margin-bottom: .5rem;
 }
