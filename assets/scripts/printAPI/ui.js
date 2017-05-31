@@ -50,17 +50,17 @@ const updatePrint = (event) => {
 }
 
 const updatePrintSuccess = (response) => {
-  console.log('Prints removed')
+  $('.text-display').html('Quantity updated')
 }
 const updatePrintFailure = (response) => {
-  console.log('error removing print')
+  $('.text-display').html('Error updating quantity')
 }
 
 const removePrintSuccess = (response) => {
-  console.log('Prints updated by quantity', response)
+  $('.text-display').html('Prints removed')
 }
 const removeprintFailure = (response) => {
-  console.log('error updating print')
+  $('.text-display').html('Error removing print')
 }
 
 // const getHistorySuccess = (data) => {
@@ -78,14 +78,10 @@ const getHistoryFailure = (response) => {
 }
 
 const createPrintSuccess = (target) => {
-  console.log('In create success, create print target:', target)
   $('<p>Successfully added to cart!</p>').appendTo(target)
 }
 
 const createPrintFailure = (target) => {
-  console.log('print create failure', target)
-  console.log('cannot add zero prints, please select a valid quantity')
-  $('.text-display').text('Cannot add zero prints, please select a valid quantity')
   $('<p>Cannot add zero prints, please select a valid quantity</p>').appendTo(target)
 }
 
