@@ -36,8 +36,6 @@ const indexPrints = () => {
 }
 
 const createPrint = (data) => {
-  console.log('update cart ajax is sent:')
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/prints',
     method: 'POST',

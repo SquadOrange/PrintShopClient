@@ -13,20 +13,13 @@ const onGetCart = function (event) {
 }
 
 const isPrintAlreadyInCart = function (printArray, printId) {
-  console.log('we have reached fucntion')
-  console.log('print array is ', printArray.prints)
   if (printArray.prints.length === 0) {
-    console.log('length is zero, return false')
     return isInArray
   }
-  console.log('print array is idNum ', printArray.prints[0].idNum)
   let isInArray = false
   for (let i = 0; i < printArray.prints.length; i++) {
-    console.log('it is in loop function ', printArray.prints[i].idNum)
-    console.log('matching id is', printId)
   // need to be double equal, does not work with strict equality
     if (printArray.prints[i].idNum == printId) {
-      console.log('they match!')
       isInArray = true
       return isInArray
     }
@@ -43,9 +36,7 @@ const onCreatePrint = function (event) {
   store.printId = printId
   // check with store.indexOfPrints to see if object already exsist with data-id on this button
   if (isPrintAlreadyInCart(printArray, printId)) {
-    console.log('it is already purchased, change quantity in the cart')
   } else {
-    console.log('it is not in the array')
     api.createPrint(data)
       .then(() => { ui.createPrintSuccess(event.target) })
       .catch(() => { ui.createPrintFailure(event.target) })

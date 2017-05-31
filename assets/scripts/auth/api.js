@@ -39,31 +39,9 @@ const signOut = () => {
   })
 }
 
-const makeEmptyCart = () => {
-  console.log('update cart ajax is sent:')
-  return $.ajax({
-    url: config.apiOrigin + '/buyers',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'buyer': {
-        'cart': [{
-          'title': 'void',
-          'quantity': 0,
-          'idNum': 9,
-          'purchased': 'true'
-        }]
-      }
-    }
-  })
-}
-
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  makeEmptyCart
+  signOut
 }
