@@ -15,7 +15,17 @@ const indexPrintsSuccess = (response) => {
     $('.cartHas-display').html(indexPrintsHtml)
     $('.remove-print-button').on('click', removePrint)
     $('.update-print-button').on('submit', updatePrint)
+    console.log('index successful:', response)
+    calculateTotalCost()
   }
+}
+
+const calculateTotalCost = (response) => {
+  const printArray = store.indexOfPrints.prints
+  const totalQuantity = printArray.reduce(function (a, b) { return a + b.quantity }, 0)
+  store.totalCost = totalQuantity * 100
+  console.log(totalQuantity * 100)
+  $('.total-cost-display').text('Subtotal is: $' + store.totalCost)
 }
 
 const indexPrintsFailure = (response) => {
@@ -108,5 +118,6 @@ module.exports = {
   createPrintSuccess,
   indexPrintsFailure,
   indexPrintsSuccess,
-  removePrint
+  removePrint,
+  calculateTotalCost
 }
