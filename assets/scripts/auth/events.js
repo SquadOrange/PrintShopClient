@@ -3,7 +3,8 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-// const printAPI = require('../printAPI/api')
+const printAPI = require('../printAPI/api')
+const printUI = require('../printAPI/ui')
 
 // chains sign in to allow auto-sign in functionality
 const onSignUp = function (event) {
@@ -16,9 +17,9 @@ const onSignUp = function (event) {
       api.signIn(data)
         .then(ui.signInSuccess)
         .then(() => {
-          api.makeEmptyCart()
-          .then(ui.emptyCartSuccess)
-          .catch(ui.emptyCartFailure)
+          printAPI.indexPrints()
+          .then(printUI.indexPrintsSuccess)
+          .catch(printUI.indexPrintsFailure)
         })
         .catch(ui.signInFailure)
     })
@@ -31,6 +32,11 @@ const onSignIn = function (event) {
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(() => {
+      printAPI.indexPrints()
+      .then(printUI.indexPrintsSuccess)
+      .catch(printUI.indexPrintsFailure)
+    })
     .catch(ui.signInFailure)
 }
 

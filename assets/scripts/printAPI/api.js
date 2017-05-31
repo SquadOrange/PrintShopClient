@@ -25,9 +25,9 @@ const getHistory = () => {
   })
 }
 
-const getCartHas = () => {
+const indexPrints = () => {
   return $.ajax({
-    url: config.apiOrigin + '/buyers',
+    url: config.apiOrigin + '/prints',
     method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -35,46 +35,44 @@ const getCartHas = () => {
   })
 }
 
-const updateCart = (data) => {
+const createPrint = (data) => {
   console.log('update cart ajax is sent:')
   console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/buyers/' + store.buyerId,
-    method: 'PATCH',
+    url: config.apiOrigin + '/prints',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
-      'buyer': {
-        'cart': [{
-          'title': titleArray[store.printId],
-          'quantity': data.cart.quantity,
-          'idNum': store.printId,
-          'purchased': 'false'
-        }]
+      'print': {
+        'title': titleArray[store.printId],
+        'quantity': data.cart.quantity,
+        'idNum': store.printId,
+        'purchased': 'false'
       }
     }
   })
 }
 
-const removeItem = (data) => {
-  console.log('remove request initiated')
+const removeById = (printId) => {
   return $.ajax({
-    url: config.apiOrigin + '/buyers/' + store.buyerId,
+    url: config.apiOrigin + '/prints/' + printId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateById = (printId, data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/prints/' + printId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {
-      'buyer': {
-        'cart': [{
-          'title': titleArray[store.printId],
-          'quantity': 0,
-          'idNum': store.printId,
-          'purchased': 'false'
-        }]
-      }
-    }
+    data: data
   })
 }
 
@@ -92,9 +90,10 @@ const makeCharge = function (token) {
 
 module.exports = {
   getCart,
-  updateCart,
-  removeItem,
+  updateById,
   getHistory,
-  getCartHas,
-  makeCharge
+  makeCharge,
+  createPrint,
+  indexPrints,
+  removeById
 }

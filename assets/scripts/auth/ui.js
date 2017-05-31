@@ -16,8 +16,9 @@ const signInSuccess = (data) => {
   $('.showAfterLogin').show()
   $('.hideAfterLogin').hide()
   $('input').val('')
+  $('.cartHas-display').empty()
 
-  // store the user object as per below
+  // store the user object as per belows
   store.user = data.user
 }
 

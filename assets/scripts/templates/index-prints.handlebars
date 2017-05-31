@@ -1,0 +1,31 @@
+
+  <!-- {{> partial}} -->
+
+  <table class="cart-handlebars" data-id="{{print.id}}">
+    <thead>
+      <tr>
+        <th>Print</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each prints as |print|}}
+      <tr>
+        <td>{{print.title}}</td>
+        <td>{{print.quantity}}</td>
+        <td>
+          <form data-id="{{print.id}}" class="update-print-button">
+            <fieldset>
+          <input type="number" name="print[quantity]" value="1" placeholder="1" min="1" max="10">
+          <button type="submit">edit</button>
+        </fieldset>
+        </form>
+        </td>
+        <td>
+          <button class="remove-print-button"  data-id="{{print.id}}">remove</button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
