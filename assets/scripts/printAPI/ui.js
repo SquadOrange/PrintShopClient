@@ -6,6 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const indexPrintsSuccess = (response) => {
   store.indexOfPrints = response
+  console.log('index of prints is in store is:', store.indexOfPrints)
   if (response.prints.length === 0) {
     $('.cartHas-display').html("Don't forget to add some prints!")
   } else {
