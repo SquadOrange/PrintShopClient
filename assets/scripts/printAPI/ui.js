@@ -82,8 +82,6 @@ const getHistoryFailure = (response) => {
 const createPrintSuccess = (target) => {
   console.log('create print target:', target)
   $('<p>Successfully added to cart!</p>').appendTo(target)
-  $(target).find('input').hide()
-  $(target).find('button').hide()
 }
 
 const createPrintFailure = (target) => {
