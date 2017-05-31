@@ -79,7 +79,7 @@ const updateById = (printId, data) => {
 const makeCharge = function (token) {
   console.log('at make charge')
   return $.ajax({
-    url: config.apiOrigin + '/charge',
+    url: config.apiOrigin + '/charges',
     method: 'POST',
     headers: {
       'Authorization': 'Token token=' + store.user.token
