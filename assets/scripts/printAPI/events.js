@@ -91,6 +91,9 @@ const checkoutHandler = StripeCheckout.configure({
 
 // Stripe checkout
 const handleToken = function(token) {
+  console.log('before adding the amount', token)
+  token.amount = (store.totalCost * 100)
+  console.log('after adding the amount', token)
   api.makeCharge(token)
     .then(output => {
       console.log('output is', output)
