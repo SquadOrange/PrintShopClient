@@ -35,8 +35,9 @@ const indexPrintsFailure = (response) => {
 const removePrint = (event) => {
   event.preventDefault()
   const findId = $(event.target).attr('data-id')
+  console.log('removePrint event target is: ', event.target)
   api.removeById(findId)
-    .then(removePrintSuccess)
+    .then(removePrintSuccess(event.target))
     .then(() => {
       api.indexPrints()
         .then(indexPrintsSuccess)
@@ -66,8 +67,9 @@ const updatePrintFailure = (response) => {
   $('.text-display').html('Error updating quantity')
 }
 
-const removePrintSuccess = (response) => {
+const removePrintSuccess = (target) => {
   $('.text-display').html('Prints removed')
+  $('.create-print-message').detach()
 }
 const removeprintFailure = (response) => {
   $('.text-display').html('Error removing print')
@@ -83,11 +85,12 @@ const getHistoryFailure = (response) => {
 }
 
 const createPrintSuccess = (target) => {
-  $('<p>Successfully added to cart!</p>').appendTo(target)
+  $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target)
+  $('.create-print-message').css('position', 'absolute').css('text-align', 'center')
 }
 
 const createPrintFailure = (target) => {
-  $('<p>Cannot add zero prints, please select a valid quantity</p>').appendTo(target)
+  $('<p>Sorry, could not add to cart.</p>').appendTo(target)
 }
 
 const tokenSuccess = (data) => {

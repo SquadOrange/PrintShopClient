@@ -67,7 +67,6 @@ h1 {
   width: 26vw;
 }
 
-
 .print-image-container {
   display: flex;
   justify-content: center;
@@ -82,6 +81,20 @@ h1 {
   max-height: 25vw;
   max-width: 25vw;
 }
+
+.create-print-message {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  padding: .5rem 0;
+}
+
+.create-print-message p {
+  position: relative;
+  left: -50%;
+  width: 100%;
+}
+
 
 form,
 button {
@@ -98,7 +111,8 @@ button:focus {
 }
 
 p,
-.total-cost-display {
+.total-cost-display,
+.create-print-message {
   font-family: 'Open Sans', sans-serif;
   margin-bottom: .5rem;
 }
