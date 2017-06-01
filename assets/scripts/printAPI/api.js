@@ -74,21 +74,21 @@ const updateById = (printId, data) => {
   })
 }
 
-const changeStatus = () => {
+const changeStatus = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/sold',
-    method: 'PATCH',
+    url: config.apiOrigin + '/purchase-before-sold',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'print': {
-        'title': titleArray[store.printId],
-        'quantity': '3',
-        'idNum': store.printId,
-        'purchased': 'false'
-      }
     }
+    // data: {
+    //   'print': {
+    //     'title': titleArray[store.printId],
+    //     'quantity': '2',
+    //     'idNum': store.printId,
+    //     'purchased': 'false'
+    //   }
+    // }
   })
 }
 
