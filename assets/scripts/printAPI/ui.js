@@ -8,6 +8,7 @@ const indexPrintsSuccess = (response) => {
   store.indexOfPrints = response
   if (response.prints.length === 0) {
     $('.cartHas-display').html("Don't forget to add some prints!")
+    calculateTotalCost()
   } else {
     const indexPrintsHtml = showPrintsTemplate({
       prints: response.prints
