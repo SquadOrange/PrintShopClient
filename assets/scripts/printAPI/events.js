@@ -95,8 +95,13 @@ const handleToken = function (token) {
   api.makeCharge(token)
     .then(output => {
       console.log('output is', output)
+      console.log('output id is', output.id)
+      console.log('output amount is', output.amount)
+      const cost = (output.amount / 100).toString()
+      console.log('cost is', cost)
       if (output.status === 'succeeded') {
         console.log('purchase completed')
+        $('.purchaseConfirm').text('You have successfully paid, the total cost was $' + cost)
         onCreateOrder()
       }
     })
@@ -109,10 +114,11 @@ const handleToken = function (token) {
 
 // StripeCheckout functions
 const onCheckout = function(ev) {
-  console.log('at pon checkout!')
+  console.log('at on checkout!')
   console.log('cost it', store.totalCost)
   if (store.totalCost === undefined || store.totalCost === 0) {
     console.log('you must buy somethine before you can purchase it! Put some prints in the cart')
+    $('.purchaseConfirm').text('You must put someting in the cart before you can purchase it. Put some prints in the cart!')
     return
   } else {
     checkoutHandler.open({
@@ -168,7 +174,7 @@ const addPrintHandlers = () => {
   // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
-  $('#changeStatus').on('click', onChangeStatus)
+  // $('#changeStatus').on('click', onChangeStatus)
 }
 
 module.exports = {
