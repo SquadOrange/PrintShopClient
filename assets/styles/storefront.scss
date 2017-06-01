@@ -82,14 +82,16 @@ h1 {
   max-width: 25vw;
 }
 
-.create-print-message {
+.create-print-message,
+.create-print-failure {
   position: absolute;
   left: 50%;
   width: 100%;
   padding: .5rem 0;
 }
 
-.create-print-message p {
+.create-print-message p,
+.create-print-failure p {
   position: relative;
   left: -50%;
   width: 100%;
@@ -114,7 +116,8 @@ button:focus {
 
 p,
 .total-cost-display,
-.create-print-message {
+.create-print-message,
+.create-print-failure {
   font-family: 'Open Sans', sans-serif;
   margin-bottom: .5rem;
 }

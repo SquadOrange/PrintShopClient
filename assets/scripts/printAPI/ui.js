@@ -70,6 +70,9 @@ const updatePrintFailure = (response) => {
 const removePrintSuccess = (target) => {
   $('.text-display').html('Prints removed')
   $('.create-print-message').detach()
+  if ($('.create-print-failure').length) {
+    $('.create-print-failure').detach()
+  }
 }
 const removeprintFailure = (response) => {
   $('.text-display').html('Error removing print')
@@ -85,12 +88,24 @@ const getHistoryFailure = (response) => {
 }
 
 const createPrintSuccess = (target) => {
+  if ($('.create-print-failure').length) {
+    $('.create-print-failure').detach()
+  }
   $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target)
-  $('.create-print-message').css('position', 'absolute').css('text-align', 'center')
 }
 
 const createPrintFailure = (target) => {
-  $('<p>Sorry, could not add to cart.</p>').appendTo(target)
+  if ($('.create-print-message').length) {
+    $('.create-print-message').detach()
+  }
+  $('<div class="create-print-failure"><p>Sorry, please choose a valid quantity.</p><div>').appendTo(target)
+}
+
+const alreadyInCart = (target) => {
+  if ($('.create-print-message').length) {
+    $('.create-print-message').detach()
+  }
+  $('<div class="create-print-failure"><p>Sorry, that print is already in the cart.</p><div>').appendTo(target)
 }
 
 const tokenSuccess = (data) => {
@@ -110,6 +125,7 @@ module.exports = {
   tokenFailure,
   createPrintFailure,
   createPrintSuccess,
+  alreadyInCart,
   indexPrintsFailure,
   indexPrintsSuccess,
   removePrint,
