@@ -63,6 +63,7 @@ const updatePrint = (event) => {
 const updatePrintSuccess = (response) => {
   $('.text-display').html('Quantity updated')
 }
+
 const updatePrintFailure = (response) => {
   $('.text-display').html('Error updating quantity')
 }
