@@ -118,6 +118,14 @@ const tokenFailure = (response) => {
   $('.purchaseConfirm').text('unable to process purchase')
 }
 
+const changeStatusSuccess = (data) => {
+  console.log('sucess', data)
+}
+
+const changeStatusFailure = (response) => {
+  console.log('removal failure')
+}
+
 module.exports = {
   getHistoryFailure,
   getHistorySuccess,
@@ -129,5 +137,7 @@ module.exports = {
   indexPrintsFailure,
   indexPrintsSuccess,
   removePrint,
-  calculateTotalCost
+  calculateTotalCost,
+  changeStatusFailure,
+  changeStatusSuccess
 }

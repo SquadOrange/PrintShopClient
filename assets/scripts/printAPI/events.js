@@ -49,6 +49,16 @@ const onCreatePrint = function (event) {
   }
 }
 
+const onChangeStatus = function (event) {
+  event.preventDefault()
+  // const data = getFormFields(event.target)
+  // const idNum = $(event.target).attr('data-id')
+  // store.printId = idNum
+  api.changeStatus()
+    .then(ui.changeStatusSuccess)
+    .catch(ui.changeStatusFailure)
+}
+
 const onUpdatePrint = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -110,6 +120,7 @@ const addPrintHandlers = () => {
   // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
+  $('#changeStatus').on('click', onChangeStatus)
 }
 
 module.exports = {
