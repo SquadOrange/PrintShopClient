@@ -66,11 +66,11 @@ const onUpdatePrint = function (event) {
     .catch(ui.updatePrintFailure)
 }
 
-const onViewHistory = () => {
+const onShowOrder = () => {
   event.preventDefault()
-  api.getHistory()
-    .then(ui.getHistorySuccess)
-    .catch(ui.getHistoryFailure)
+  api.showOrder()
+    .then(ui.showOrderSuccess)
+    .catch(ui.showOrderFailure)
 }
 
 const onIndexPrints = () => {
@@ -88,7 +88,7 @@ const checkoutHandler = StripeCheckout.configure({
 })
 
 // Stripe checkout
-const handleToken = function(token) {
+const handleToken = function (token) {
   console.log('before adding the amount', token)
   token.amount = (store.totalCost * 100)
   console.log('after adding the amount', token)
@@ -97,8 +97,11 @@ const handleToken = function(token) {
       console.log('output is', output)
       if (output.status === 'succeeded') {
         console.log('purchase completed')
-        // $('.purchaseConfirm').text('Purhcase complete!')
+        onCreateOrder()
       }
+    })
+    .then(() => {
+      onRemovePrints()
     })
     .then(ui.tokenSuccess)
     .catch(ui.tokenFailure)
@@ -114,7 +117,7 @@ const onCheckout = function(ev) {
 }
 
 const onCreateOrder = function () {
-  event.preventDefault()
+  // event.preventDefault()
   console.log('prints are', store.indexOfPrints)
   const prints = store.indexOfPrints
   console.log('and this?', prints.prints.length)
@@ -132,12 +135,29 @@ const onCreateOrder = function () {
   }
 }
 
+const onRemovePrints = () => {
+  const prints = store.indexOfPrints
+  console.log('inside onRemovePrints')
+  for (let i = 0; i < prints.prints.length; i++) {
+    console.log('inside removePrints for loop')
+    const findId = prints.prints[i].id
+    api.removeById(findId)
+    .then(ui.removePrintsSuccess)
+    .then(() => {
+      api.indexPrints()
+        .then(ui.indexPrintsSuccess)
+        .catch(ui.indexPrintsFailure)
+    })
+    .catch(ui.removePrintsFailure)
+  }
+}
+
 const addPrintHandlers = () => {
   // this is what will now post to make a new print
   $('.print-container').on('submit', onCreatePrint)
   $('.cart-button').on('click', onGetCart)
   $('.update-quantity').on('click', onUpdatePrint)
-  $('.purcashed-button').on('click', onViewHistory)
+  $('.purcashed-button').on('click', onShowOrder)
   // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)

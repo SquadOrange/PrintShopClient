@@ -16,9 +16,9 @@ const createOrder = (data) => {
   })
 }
 
-const getHistory = () => {
+const showOrder = () => {
   return $.ajax({
-    url: config.apiOrigin + '/purchased',
+    url: config.apiOrigin + '/orders',
     method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -133,7 +133,7 @@ const makeCharge = function (token) {
 module.exports = {
   createOrder,
   updateById,
-  getHistory,
+  showOrder,
   makeCharge,
   createPrint,
   indexPrints,
