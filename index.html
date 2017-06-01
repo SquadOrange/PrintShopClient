@@ -7,13 +7,16 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Serif" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body class="container-fluid">
+<body>
   <header>
     <h1>P R I N T S</h1>
     <img class="paintbrush" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/paintbrush.png"/>
@@ -95,8 +98,10 @@
         <form class="print-form" data-id="0">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -110,8 +115,10 @@
         <form class="print-form" data-id="1">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="2" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
           <div class="append"></div>
         </fieldset>
       </form>
@@ -126,8 +133,10 @@
         <form class="print-form" data-id="2">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -141,8 +150,10 @@
         <form class="print-form" data-id="3">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -156,8 +167,10 @@
         <form class="print-form" data-id="4">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -171,8 +184,10 @@
         <form class="print-form" data-id="5">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -186,8 +201,10 @@
         <form class="print-form" data-id="6">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -201,8 +218,10 @@
         <form class="print-form" data-id="7">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>
@@ -216,8 +235,10 @@
         <form class="print-form" data-id="8">
         <fieldset>
           <p>$100</p>
-          <input class="hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" placeholder="1" min="1" max="10">
-          <button class="hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">Add to Cart</button>
+          <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
+          <button class="btn btn-default btn-sm hideBeforeLogin showAfterLogin" type="submit" name="submit" value="submit">
+            <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+          </button>
         </fieldset>
       </form>
     </div>

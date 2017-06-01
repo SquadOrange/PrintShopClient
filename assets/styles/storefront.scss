@@ -67,7 +67,6 @@ h1 {
   width: 26vw;
 }
 
-
 .print-image-container {
   display: flex;
   justify-content: center;
@@ -83,6 +82,22 @@ h1 {
   max-width: 25vw;
 }
 
+.create-print-message,
+.create-print-failure {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  padding: .5rem 0;
+}
+
+.create-print-message p,
+.create-print-failure p {
+  position: relative;
+  left: -50%;
+  width: 100%;
+}
+
+
 form,
 button {
   position: relative;
@@ -91,6 +106,8 @@ button {
 
 input {
   outline: none;
+  padding: .2rem 0;
+  margin-right: .7rem;
 }
 
 button:focus {
@@ -98,7 +115,9 @@ button:focus {
 }
 
 p,
-.total-cost-display {
+.total-cost-display,
+.create-print-message,
+.create-print-failure {
   font-family: 'Open Sans', sans-serif;
   margin-bottom: .5rem;
 }

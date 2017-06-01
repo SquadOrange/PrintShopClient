@@ -35,8 +35,9 @@ const indexPrintsFailure = (response) => {
 const removePrint = (event) => {
   event.preventDefault()
   const findId = $(event.target).attr('data-id')
+  console.log('removePrint event target is: ', event.target)
   api.removeById(findId)
-    .then(removePrintSuccess)
+    .then(removePrintSuccess(event.target))
     .then(() => {
       api.indexPrints()
         .then(indexPrintsSuccess)
@@ -66,8 +67,12 @@ const updatePrintFailure = (response) => {
   $('.text-display').html('Error updating quantity')
 }
 
-const removePrintSuccess = (response) => {
+const removePrintSuccess = (target) => {
   $('.text-display').html('Prints removed')
+  $('.create-print-message').detach()
+  if ($('.create-print-failure').length) {
+    $('.create-print-failure').detach()
+  }
 }
 const removeprintFailure = (response) => {
   $('.text-display').html('Error removing print')
@@ -83,11 +88,24 @@ const getHistoryFailure = (response) => {
 }
 
 const createPrintSuccess = (target) => {
-  $('<p>Successfully added to cart!</p>').appendTo(target)
+  if ($('.create-print-failure').length) {
+    $('.create-print-failure').detach()
+  }
+  $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target)
 }
 
 const createPrintFailure = (target) => {
-  $('<p>Cannot add zero prints, please select a valid quantity</p>').appendTo(target)
+  if ($('.create-print-message').length) {
+    $('.create-print-message').detach()
+  }
+  $('<div class="create-print-failure"><p>Sorry, please choose a valid quantity.</p><div>').appendTo(target)
+}
+
+const alreadyInCart = (target) => {
+  if ($('.create-print-message').length) {
+    $('.create-print-message').detach()
+  }
+  $('<div class="create-print-failure"><p>Sorry, that print is already in the cart.</p><div>').appendTo(target)
 }
 
 const tokenSuccess = (data) => {
@@ -107,6 +125,7 @@ module.exports = {
   tokenFailure,
   createPrintFailure,
   createPrintSuccess,
+  alreadyInCart,
   indexPrintsFailure,
   indexPrintsSuccess,
   removePrint,

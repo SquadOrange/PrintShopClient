@@ -36,6 +36,7 @@ const onCreatePrint = function (event) {
   store.printId = printId
   // check with store.indexOfPrints to see if object already exsist with data-id on this button
   if (isPrintAlreadyInCart(printArray, printId)) {
+    ui.alreadyInCart(event.target)
   } else {
     api.createPrint(data)
       .then(() => { ui.createPrintSuccess(event.target) })
