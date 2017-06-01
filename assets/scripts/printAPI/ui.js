@@ -63,6 +63,7 @@ const updatePrint = (event) => {
 const updatePrintSuccess = (response) => {
   $('.text-display').html('Quantity updated')
 }
+
 const updatePrintFailure = (response) => {
   $('.text-display').html('Error updating quantity')
 }
@@ -126,6 +127,14 @@ const changeStatusFailure = (response) => {
   console.log('change status failure')
 }
 
+const createOrderFailure = (data) => {
+  console.log('change status failure', data)
+}
+
+const createOrderSuccess = (response) => {
+  console.log('change status success', response)
+}
+
 module.exports = {
   getHistoryFailure,
   getHistorySuccess,
@@ -139,5 +148,7 @@ module.exports = {
   removePrint,
   calculateTotalCost,
   changeStatusFailure,
-  changeStatusSuccess
+  changeStatusSuccess,
+  createOrderSuccess,
+  createOrderFailure
 }

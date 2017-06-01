@@ -106,11 +106,37 @@ const handleToken = function(token) {
 
 // StripeCheckout functions
 const onCheckout = function(ev) {
-  checkoutHandler.open({
-    name: 'Sample Store',
-    description: 'Buying Prints',
-    token: handleToken
-  })
+  console.log('at pon checkout!')
+  console.log('cost it', store.totalCost)
+  if (store.totalCost === undefined || store.totalCost === 0) {
+    console.log('you must buy somethine before you can purchase it! Put some prints in the cart')
+    return
+  } else {
+    checkoutHandler.open({
+      name: 'Sample Store',
+      description: 'Buying Prints',
+      token: handleToken
+    })
+  }
+}
+
+const onCreateOrder = function () {
+  event.preventDefault()
+  console.log('prints are', store.indexOfPrints)
+  const prints = store.indexOfPrints
+  console.log('and this?', prints.prints.length)
+  for (let i = 0; i < prints.prints.length; i++) {
+    console.log('are we here?')
+    const data = {
+      'order': {
+        'printName': prints.prints[i].title,
+        'printQuant': prints.prints[i].quantity
+      }
+    }
+    api.createOrder(data)
+      .then(ui.createOrderSuccess)
+      .catch(ui.createOrderFailure)
+  }
 }
 
 const addPrintHandlers = () => {
@@ -122,7 +148,7 @@ const addPrintHandlers = () => {
   // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
-  $('#changeStatus').on('click', onChangeStatus)
+  $('#changeStatus').on('click', onCreateOrder)
 }
 
 module.exports = {
