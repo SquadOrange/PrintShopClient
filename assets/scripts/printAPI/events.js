@@ -113,6 +113,25 @@ const onCheckout = function(ev) {
   })
 }
 
+const onCreateOrder = function () {
+  event.preventDefault()
+  console.log('prints are', store.indexOfPrints)
+  const prints = store.indexOfPrints
+  console.log('and this?', prints.prints.length)
+  for (let i = 0; i < prints.prints.length; i++) {
+    console.log('are we here?')
+    const data = {
+      'order': {
+        'printName': prints.prints[i].title,
+        'printQuant': prints.prints[i].quantity
+      }
+    }
+    api.createOrder(data)
+      .then(ui.createOrderSuccess)
+      .catch(ui.createOrderFailure)
+  }
+}
+
 const addPrintHandlers = () => {
   // this is what will now post to make a new print
   $('.print-container').on('submit', onCreatePrint)
@@ -122,7 +141,7 @@ const addPrintHandlers = () => {
   // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
-  $('#changeStatus').on('click', onChangeStatus)
+  $('#changeStatus').on('click', onCreateOrder)
 }
 
 module.exports = {
