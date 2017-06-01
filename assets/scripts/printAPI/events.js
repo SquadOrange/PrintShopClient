@@ -106,11 +106,18 @@ const handleToken = function(token) {
 
 // StripeCheckout functions
 const onCheckout = function(ev) {
-  checkoutHandler.open({
-    name: 'Sample Store',
-    description: 'Buying Prints',
-    token: handleToken
-  })
+  console.log('at pon checkout!')
+  console.log('cost it', store.totalCost)
+  if (store.totalCost === undefined || store.totalCost === 0) {
+    console.log('you must buy somethine before you can purchase it! Put some prints in the cart')
+    return
+  } else {
+    checkoutHandler.open({
+      name: 'Sample Store',
+      description: 'Buying Prints',
+      token: handleToken
+    })
+  }
 }
 
 const onCreateOrder = function () {
