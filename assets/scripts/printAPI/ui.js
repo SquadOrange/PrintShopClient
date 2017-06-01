@@ -16,7 +16,16 @@ const indexPrintsSuccess = (response) => {
     $('.remove-print-button').on('click', removePrint)
     $('.update-print-button').on('submit', updatePrint)
     console.log('index successful:', response)
+    calculateTotalCost()
   }
+}
+
+const calculateTotalCost = (response) => {
+  const printArray = store.indexOfPrints.prints
+  const totalQuantity = printArray.reduce(function (a, b) { return a + b.quantity }, 0)
+  store.totalCost = totalQuantity * 100
+  console.log(totalQuantity * 100)
+  $('.total-cost-display').text('Subtotal is: $' + store.totalCost)
 }
 
 const indexPrintsFailure = (response) => {
@@ -26,8 +35,9 @@ const indexPrintsFailure = (response) => {
 const removePrint = (event) => {
   event.preventDefault()
   const findId = $(event.target).attr('data-id')
+  console.log('removePrint event target is: ', event.target)
   api.removeById(findId)
-    .then(removePrintSuccess)
+    .then(removePrintSuccess(event.target))
     .then(() => {
       api.indexPrints()
         .then(indexPrintsSuccess)
@@ -51,46 +61,55 @@ const updatePrint = (event) => {
 }
 
 const updatePrintSuccess = (response) => {
-  console.log('Prints removed')
+  $('.text-display').html('Quantity updated')
 }
 const updatePrintFailure = (response) => {
-  console.log('error removing print')
+  $('.text-display').html('Error updating quantity')
 }
 
-const removePrintSuccess = (response) => {
-  console.log('Prints updated by quantity', response)
+const removePrintSuccess = (target) => {
+  $('.text-display').html('Prints removed')
+  $('.create-print-message').detach()
+  if ($('.create-print-failure').length) {
+    $('.create-print-failure').detach()
+  }
 }
 const removeprintFailure = (response) => {
-  console.log('error updating print')
+  $('.text-display').html('Error removing print')
 }
 
-// const getHistorySuccess = (data) => {
-//   console.log('got the history')
-//   if (data.buyers[0].alreadyPurchased.length === 0) {
-//     $('.purchase-display').text("You haven't bought anything yet")
-//   } else {
-//     console.log('the cart has ', data.buyers[0].alreadyPurchased)
-//     $('.purchase-display').text('Items you have purchased: ' + printHistory(data))
-//   }
-// }
+const getHistorySuccess = (data) => {
+  console.log('got the history')
+  $('.purchase-display').text('successful')
+}
 
 const getHistoryFailure = (response) => {
-  console.log('cannot get cart')
   $('.purchase-display').text('no purchase history to display')
 }
 
-const createPrintSuccess = (response) => {
-  console.log('create print response:', response)
+const createPrintSuccess = (target) => {
+  if ($('.create-print-failure').length) {
+    $('.create-print-failure').detach()
+  }
+  $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target)
 }
 
-const createPrintFailure = (response) => {
-  console.log('print create failure', response)
-  console.log('cannot add zero prints, please select a valid quantity')
-  $('.text-display').text('Cannot add zero prints, please select a valid quantity')
+const createPrintFailure = (target) => {
+  if ($('.create-print-message').length) {
+    $('.create-print-message').detach()
+  }
+  $('<div class="create-print-failure"><p>Sorry, please choose a valid quantity.</p><div>').appendTo(target)
+}
+
+const alreadyInCart = (target) => {
+  if ($('.create-print-message').length) {
+    $('.create-print-message').detach()
+  }
+  $('<div class="create-print-failure"><p>Sorry, that print is already in the cart.</p><div>').appendTo(target)
 }
 
 const tokenSuccess = (data) => {
-  console.log('sucess', data)
+  console.log('sucess data is: ', data)
   $('.purchaseConfirm').text('you have successfully paid')
 }
 
@@ -99,14 +118,26 @@ const tokenFailure = (response) => {
   $('.purchaseConfirm').text('unable to process purchase')
 }
 
+const changeStatusSuccess = (data) => {
+  console.log('change status success', data)
+}
+
+const changeStatusFailure = (response) => {
+  console.log('change status failure')
+}
+
 module.exports = {
   getHistoryFailure,
-  // getHistorySuccess,
+  getHistorySuccess,
   tokenSuccess,
   tokenFailure,
   createPrintFailure,
   createPrintSuccess,
+  alreadyInCart,
   indexPrintsFailure,
   indexPrintsSuccess,
-  removePrint
+  removePrint,
+  calculateTotalCost,
+  changeStatusFailure,
+  changeStatusSuccess
 }

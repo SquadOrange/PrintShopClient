@@ -17,7 +17,7 @@ const getCart = () => {
 
 const getHistory = () => {
   return $.ajax({
-    url: config.apiOrigin + '/buyers',
+    url: config.apiOrigin + '/purchased',
     method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -36,8 +36,6 @@ const indexPrints = () => {
 }
 
 const createPrint = (data) => {
-  console.log('update cart ajax is sent:')
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/prints',
     method: 'POST',
@@ -76,10 +74,53 @@ const updateById = (printId, data) => {
   })
 }
 
+// Trying to use switch cases to chain update on get request:
+
+// const changeStatus = function (step) {
+//   switch (step) {
+//     case 0: $.ajax({
+//       url: config.apiOrigin + '/purchase-before-sold',
+//       method: 'GET',
+//       headers: {
+//         Authorization: 'Token token=' + store.user.token
+//       },
+//       complete: function () { changeStatus(1) }
+//     }); break
+//     case 1: $.ajax({
+//       url: config.apiOrigin + '/sold',
+//       method: 'PATCH',
+//       headers: {
+//         Authorization: 'Token token=' + store.user.token
+//       },
+//       complete: function () { changeStatus(2) }
+//     }); break
+//   }
+// }
+//
+// changeStatus(0)
+
+const changeStatus = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/purchase-before-sold',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+    // data: {
+    //   'print': {
+    //     'title': titleArray[store.printId],
+    //     'quantity': '2',
+    //     'idNum': store.printId,
+    //     'purchased': 'false'
+    //   }
+    // }
+  })
+}
+
 const makeCharge = function (token) {
   console.log('at make charge')
   return $.ajax({
-    url: config.apiOrigin + '/charge',
+    url: config.apiOrigin + '/charges',
     method: 'POST',
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -95,5 +136,6 @@ module.exports = {
   makeCharge,
   createPrint,
   indexPrints,
-  removeById
+  removeById,
+  changeStatus
 }
