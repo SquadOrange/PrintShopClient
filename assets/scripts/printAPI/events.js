@@ -93,9 +93,10 @@ const checkoutHandler = StripeCheckout.configure({
 const handleToken = function(token) {
   api.makeCharge(token)
     .then(output => {
-      console.log(output)
+      console.log('output is', output)
       if (output.status === 'succeeded') {
-        $('.purchaseConfirm').text('Purhcase complete!')
+        console.log('purchase completed')
+        // $('.purchaseConfirm').text('Purhcase complete!')
       }
     })
     .then(ui.tokenSuccess)
