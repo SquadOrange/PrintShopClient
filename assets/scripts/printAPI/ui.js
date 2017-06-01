@@ -78,12 +78,13 @@ const removeprintFailure = (response) => {
   $('.text-display').html('Error removing print')
 }
 
-const getHistorySuccess = (data) => {
+const showOrderSuccess = (data) => {
   console.log('got the history')
+  console.log('order history data is ', data)
   $('.purchase-display').text('successful')
 }
 
-const getHistoryFailure = (response) => {
+const showOrderFailure = (response) => {
   $('.purchase-display').text('no purchase history to display')
 }
 
@@ -135,8 +136,8 @@ const createOrderSuccess = (response) => {
 }
 
 module.exports = {
-  getHistoryFailure,
-  getHistorySuccess,
+  showOrderFailure,
+  showOrderSuccess,
   tokenSuccess,
   tokenFailure,
   createPrintFailure,
