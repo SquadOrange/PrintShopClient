@@ -168,7 +168,7 @@ const addPrintHandlers = () => {
   // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
-  $('#changeStatus').on('click', onCreateOrder)
+  $('#changeStatus').on('click', onChangeStatus)
 }
 
 module.exports = {

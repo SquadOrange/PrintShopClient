@@ -5,14 +5,13 @@ const store = require('../store.js')
 
 const titleArray = [ 'bento box', 'sushi roll', 'lego man', 'mini cactus', 'eclair', 'sriracha', 'terrarium', 'pineapple', 'platypus' ]
 
-const createOrder = (data) => {
+const getCart = () => {
   return $.ajax({
-    url: config.apiOrigin + '/orders',
-    method: 'POST',
+    url: config.apiOrigin + '/buyers',
+    method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
@@ -98,7 +97,7 @@ const makeCharge = function (token) {
 }
 
 module.exports = {
-  createOrder,
+  getCart,
   updateById,
   showOrder,
   makeCharge,
