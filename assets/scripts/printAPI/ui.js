@@ -112,7 +112,7 @@ const alreadyInCart = (target) => {
 
 const tokenSuccess = (data) => {
   console.log('sucess data is: ', data)
-  $('.purchaseConfirm').text('you have successfully paid')
+  // $('.purchaseConfirm').text('you have successfully paid')
 }
 
 const tokenFailure = (response) => {
