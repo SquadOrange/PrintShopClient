@@ -74,21 +74,46 @@ const updateById = (printId, data) => {
   })
 }
 
+// Trying to use switch cases to chain update on get request:
+
+// const changeStatus = function (step) {
+//   switch (step) {
+//     case 0: $.ajax({
+//       url: config.apiOrigin + '/purchase-before-sold',
+//       method: 'GET',
+//       headers: {
+//         Authorization: 'Token token=' + store.user.token
+//       },
+//       complete: function () { changeStatus(1) }
+//     }); break
+//     case 1: $.ajax({
+//       url: config.apiOrigin + '/sold',
+//       method: 'PATCH',
+//       headers: {
+//         Authorization: 'Token token=' + store.user.token
+//       },
+//       complete: function () { changeStatus(2) }
+//     }); break
+//   }
+// }
+//
+// changeStatus(0)
+
 const changeStatus = () => {
   return $.ajax({
-    url: config.apiOrigin + '/sold',
-    method: 'PATCH',
+    url: config.apiOrigin + '/purchase-before-sold',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'print': {
-        'title': titleArray[store.printId],
-        'quantity': '3',
-        'idNum': store.printId,
-        'purchased': 'false'
-      }
     }
+    // data: {
+    //   'print': {
+    //     'title': titleArray[store.printId],
+    //     'quantity': '2',
+    //     'idNum': store.printId,
+    //     'purchased': 'false'
+    //   }
+    // }
   })
 }
 

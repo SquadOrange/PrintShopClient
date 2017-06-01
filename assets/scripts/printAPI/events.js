@@ -51,9 +51,6 @@ const onCreatePrint = function (event) {
 
 const onChangeStatus = function (event) {
   event.preventDefault()
-  // const data = getFormFields(event.target)
-  // const idNum = $(event.target).attr('data-id')
-  // store.printId = idNum
   api.changeStatus()
     .then(ui.changeStatusSuccess)
     .catch(ui.changeStatusFailure)
@@ -80,6 +77,7 @@ const onIndexPrints = () => {
   event.preventDefault()
   api.indexPrints()
     .then(ui.indexPrintsSuccess)
+      .then()
     .catch(ui.indexPrintsFailure)
 }
 

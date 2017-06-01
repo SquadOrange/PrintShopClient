@@ -119,11 +119,11 @@ const tokenFailure = (response) => {
 }
 
 const changeStatusSuccess = (data) => {
-  console.log('sucess', data)
+  console.log('change status success', data)
 }
 
 const changeStatusFailure = (response) => {
-  console.log('removal failure')
+  console.log('change status failure')
 }
 
 module.exports = {
