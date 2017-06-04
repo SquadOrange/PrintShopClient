@@ -83,10 +83,14 @@ const removeprintFailure = (response) => {
 const showOrderSuccess = (data) => {
   console.log('got the history')
   console.log('order history data is ', data)
-  const indexPurchaseHtml = showPurchaseTemplate({
-    order: data
-  })
-  $('.purchase-display').html(indexPurchaseHtml)
+  if (data.orders.length === 0) {
+    $('.purchase-display').html('You have no previously purchased prints')
+  } else {
+    const indexPurchaseHtml = showPurchaseTemplate({
+      order: data
+    })
+    $('.purchase-display').html(indexPurchaseHtml)
+  }
 }
 
 const showOrderFailure = (response) => {

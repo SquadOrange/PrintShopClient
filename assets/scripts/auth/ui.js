@@ -17,6 +17,7 @@ const signInSuccess = (data) => {
   // $('.hideAfterLogin').hide()
   $('input').val('')
   $('.cartHas-display').empty()
+  $('.purchase-display').empty()
   $('.sign-in-area').addClass('hidden')
   $('#change-pwd').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
