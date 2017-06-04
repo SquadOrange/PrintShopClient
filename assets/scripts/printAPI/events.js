@@ -112,7 +112,7 @@ const onCheckout = function(ev) {
     return
   } else {
     checkoutHandler.open({
-      name: 'Sample Store',
+      name: 'Print Store',
       description: 'Buying Prints',
       token: handleToken
     })
