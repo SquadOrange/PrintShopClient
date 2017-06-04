@@ -14,13 +14,13 @@ const signUpFailure = (response) => {
 const signInSuccess = (data) => {
   $('.text-display').text('Thanks for signing in. Enjoy!')
   $('.showAfterLogin').show()
-  // $('.hideAfterLogin').hide()
   $('input').val('')
   $('.cartHas-display').empty()
   $('.purchase-display').empty()
   $('.sign-in-area').addClass('hidden')
   $('#change-pwd').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
+  $('.purchaseConfirm').text('')
   document.getElementById('sign-in').reset()
 
   // store the user object as per belows
@@ -48,7 +48,6 @@ const changePasswordFailure = () => {
 const signOutSuccess = (data) => {
   $('.text-display').text('Thanks for shopping. Come back soon!')
   $('.hideBeforeLogin').hide()
-  // $('.hideAfterLogin').show()
   $('.sign-in-area').removeClass('hidden')
   $('#log-in').removeClass('hidden')
   $('#register').removeClass('hidden')

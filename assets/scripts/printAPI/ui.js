@@ -97,6 +97,7 @@ const createPrintSuccess = (target) => {
     $('.create-print-failure').detach()
   }
   $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target)
+  $('.purchaseConfirm').text('')
 }
 
 const createPrintFailure = (target) => {
@@ -104,6 +105,7 @@ const createPrintFailure = (target) => {
     $('.create-print-message').detach()
   }
   $('<div class="create-print-failure"><p>Sorry, please choose a valid quantity.</p><div>').appendTo(target)
+  $('.purchaseConfirm').text('')
 }
 
 const alreadyInCart = (target) => {
@@ -113,26 +115,13 @@ const alreadyInCart = (target) => {
   $('<div class="create-print-failure"><p>Sorry, that print is already in the cart.</p><div>').appendTo(target)
 }
 
-const tokenSuccess = (data) => {
-  // $('.purchaseConfirm').text('you have successfully paid')
-}
-
 const tokenFailure = (response) => {
   $('.purchaseConfirm').text('unable to process purchase')
-}
-
-const changeStatusSuccess = (data) => {
-  // console.log('change status success', data)
-}
-
-const changeStatusFailure = (response) => {
-  // console.log('change status failure')
 }
 
 module.exports = {
   showOrderFailure,
   showOrderSuccess,
-  tokenSuccess,
   tokenFailure,
   createPrintFailure,
   createPrintSuccess,
@@ -140,7 +129,5 @@ module.exports = {
   indexPrintsFailure,
   indexPrintsSuccess,
   removePrint,
-  calculateTotalCost,
-  changeStatusFailure,
-  changeStatusSuccess
+  calculateTotalCost
 }

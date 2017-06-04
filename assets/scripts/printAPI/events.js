@@ -49,13 +49,6 @@ const onCreatePrint = function (event) {
   }
 }
 
-const onChangeStatus = function (event) {
-  event.preventDefault()
-  api.changeStatus()
-    .then(ui.changeStatusSuccess)
-    .catch(ui.changeStatusFailure)
-}
-
 const onUpdatePrint = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -101,7 +94,6 @@ const handleToken = function (token) {
     .then(() => {
       onRemovePrints()
     })
-    .then(ui.tokenSuccess)
     .catch(ui.tokenFailure)
 }
 
@@ -112,15 +104,14 @@ const onCheckout = function(ev) {
     return
   } else {
     checkoutHandler.open({
-      name: 'Sample Store',
-      description: 'Buying Prints',
+      name: 'Print Store',
+      description: 'Buy prints from the print store',
       token: handleToken
     })
   }
 }
 
 const onCreateOrder = function () {
-  // event.preventDefault()
   const prints = store.indexOfPrints
   for (let i = 0; i < prints.prints.length; i++) {
     const data = {
@@ -151,15 +142,12 @@ const onRemovePrints = () => {
 }
 
 const addPrintHandlers = () => {
-  // this is what will now post to make a new print
   $('.print-container').on('submit', onCreatePrint)
   $('.cart-button').on('click', onGetCart)
   $('.update-quantity').on('click', onUpdatePrint)
   $('.purcashed-button').on('click', onShowOrder)
-  // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
-  // $('#changeStatus').on('click', onChangeStatus)
 }
 
 module.exports = {
