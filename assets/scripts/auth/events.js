@@ -5,6 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const printAPI = require('../printAPI/api')
 const printUI = require('../printAPI/ui')
+const uxEvents = require('../userexperience/main.js')
 
 // chains sign in to allow auto-sign in functionality
 const onSignUp = function (event) {
@@ -55,10 +56,31 @@ const onSignOut = function (event) {
 }
 
 const addHandlers = () => {
+  $('#register').on('click', function () {
+    uxEvents.signUpAppear()
+    if ($('#sign-in').not('hidden')) {
+      $('#sign-in').addClass('hidden')
+    }
+  })
+  $('#log-in').on('click', function () {
+    uxEvents.signInAppear()
+    if ($('#sign-up').not('hidden')) {
+      $('#sign-up').addClass('hidden')
+    }
+  })
+  $('#change-pwd').on('click', function () {
+    uxEvents.changePasswordAppear()
+    if (!$('.change-pwd-error').hasClass('hidden')) {
+      $('.change-pwd-error').addClass('hidden')
+    }
+    if (!$('.change-pwd-success').hasClass('hidden')) {
+      $('.change-pwd-success').addClass('hidden')
+    }
+  })
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('.sign-out-button').on('click', onSignOut)
+  $('#sign-out').on('click', onSignOut)
 }
 
 module.exports = {
