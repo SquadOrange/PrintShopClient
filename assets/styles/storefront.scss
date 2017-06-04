@@ -29,6 +29,33 @@ h1 {
   font-size: 4rem;
 }
 
+.sign-in-area,
+.sign-out-area {
+  position: absolute;
+  float: right;
+  font-size: 14px;
+  top: 25px;
+  right: 0;
+}
+
+.sign-in-area {
+  width: 210px;
+}
+
+.sign-out-area {
+  width: 300px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.sign-out-area > fieldset {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
 .paintbrush,
 .palette {
   position: absolute;
@@ -135,4 +162,26 @@ p,
 .purchase-display, .purchaseConfirm {
   font-size: 1rem;
   color: #4c443a;
+}
+
+button {
+  background-color: #668578;
+  color: white;
+  -webkit-transition-duration: 0.4s;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button:focus {
+  outline:0;
+}
+
+button[type=submit] {
+  margin-top: 10px;
 }
