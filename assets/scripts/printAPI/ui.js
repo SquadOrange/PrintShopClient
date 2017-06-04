@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store.js')
 const showPrintsTemplate = require('../templates/index-prints.handlebars')
+const showPurchaseTemplate = require('../templates/index-purchases.handlebars')
 const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields')
 
@@ -82,7 +83,11 @@ const removeprintFailure = (response) => {
 const showOrderSuccess = (data) => {
   console.log('got the history')
   console.log('order history data is ', data)
-  $('.purchase-display').text('successful')
+  debugger
+  const indexPurchaseHtml = showPurchaseTemplate({
+    order: data
+  })
+  $('.purchase-display').html(indexPurchaseHtml)
 }
 
 const showOrderFailure = (response) => {
