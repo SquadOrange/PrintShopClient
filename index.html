@@ -23,10 +23,10 @@
     <img class="palette" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/palette.png"/>
 
     <div class="sign-in-area hideAfterLogin">
-      <!-- <button id="register">register</button>
-      <button id="log-in">log in</button> -->
+      <button id="register">register</button>
+      <button id="log-in">log in</button>
 
-      <form id="sign-up">
+      <form id="sign-up" class="hidden">
         <fieldset>
           <input type="text" name="credentials[email]" placeholder="email">
           <input type="password" name="credentials[password]" placeholder="password">
@@ -36,7 +36,7 @@
       </form>
 
       <!-- <div class="sign-up-error-message"></div> -->
-      <form id="sign-in">
+      <form id="sign-in" class="hidden">
         <fieldset>
           <input type="text" name="credentials[email]" placeholder="email">
           <input type="password" name="credentials[password]" placeholder="password">
@@ -48,15 +48,14 @@
     </div>
 
     <div class="sign-out-area hideBeforeLogin showAfterLogin">
-      <!-- <button id="change-pwd" class="change-pwd-button">change password</button> -->
-      <!-- <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button> -->
+      <button id="change-pwd" class="change-pwd-button">change password</button>
+      <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
 
-      <form id="change-password">
+      <form id="change-password" class="hidden">
         <fieldset>
           <input type="password" name="passwords[old]" placeholder="old password">
           <input type="password" name="passwords[new]" placeholder="new password">
           <button type="submit" name="submit" value="change password">change password</button>
-          <button type="submit" name="submit" value="sign out" class="sign-out-button" id="sign-out">sign out</button>
         </fieldset>
       </form>
 
@@ -84,7 +83,7 @@
     <div class="stripe-checkout">
       <script src="https://checkout.stripe.com/checkout.js"></script>
       <button type="button" id="buttonCheckout" class="btn btn-primary">Checkout</button>
-      <div class="purchaseConfirm hideBeforeLogin showAfterLogin"></div>
+      <div id="confirm-purchase" class="purchaseConfirm hideBeforeLogin showAfterLogin"></div>
     </div>
   </div>
 
