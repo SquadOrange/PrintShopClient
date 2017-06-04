@@ -83,7 +83,6 @@ const removeprintFailure = (response) => {
 const showOrderSuccess = (data) => {
   console.log('got the history')
   console.log('order history data is ', data)
-  debugger
   const indexPurchaseHtml = showPurchaseTemplate({
     order: data
   })

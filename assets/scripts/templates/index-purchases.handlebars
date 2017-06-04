@@ -1,8 +1,10 @@
-{{#each order as |orders|}}
+<!-- {{#each order as |orders|}} -->
   <ul>
+    {{#each this}}
   <!-- <ul data-id="{{orders.id}}"> -->
-    <li> Print: {{orders.[0].printName}}</li>
-    <li> Quantity: {{orders.[0].printQuant}}</li>
+    <li> Print: {{this.printName}}</li>
+    <li> Quantity: {{this.printQuant}}</li>
+    {{/each}}
   </ul>
 
-{{/each}}
+<!-- {{/each}} -->
