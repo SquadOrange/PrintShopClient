@@ -89,18 +89,11 @@ const checkoutHandler = StripeCheckout.configure({
 
 // Stripe checkout
 const handleToken = function (token) {
-  console.log('before adding the amount', token)
   token.amount = (store.totalCost * 100)
-  console.log('after adding the amount', token)
   api.makeCharge(token)
     .then(output => {
-      console.log('output is', output)
-      console.log('output id is', output.id)
-      console.log('output amount is', output.amount)
       const cost = (output.amount / 100).toString()
-      console.log('cost is', cost)
       if (output.status === 'succeeded') {
-        console.log('purchase completed')
         $('.purchaseConfirm').text('You have successfully paid, the total cost was $' + cost)
         onCreateOrder()
       }
@@ -114,10 +107,7 @@ const handleToken = function (token) {
 
 // StripeCheckout functions
 const onCheckout = function(ev) {
-  console.log('at on checkout!')
-  console.log('cost it', store.totalCost)
   if (store.totalCost === undefined || store.totalCost === 0) {
-    console.log('you must buy somethine before you can purchase it! Put some prints in the cart')
     $('.purchaseConfirm').text('You must put someting in the cart before you can purchase it. Put some prints in the cart!')
     return
   } else {
@@ -131,11 +121,8 @@ const onCheckout = function(ev) {
 
 const onCreateOrder = function () {
   // event.preventDefault()
-  console.log('prints are', store.indexOfPrints)
   const prints = store.indexOfPrints
-  console.log('and this?', prints.prints.length)
   for (let i = 0; i < prints.prints.length; i++) {
-    console.log('are we here?')
     const data = {
       'order': {
         'printName': prints.prints[i].title,
@@ -150,9 +137,7 @@ const onCreateOrder = function () {
 
 const onRemovePrints = () => {
   const prints = store.indexOfPrints
-  console.log('inside onRemovePrints')
   for (let i = 0; i < prints.prints.length; i++) {
-    console.log('inside removePrints for loop')
     const findId = prints.prints[i].id
     api.removeById(findId)
     .then(ui.removePrintsSuccess)

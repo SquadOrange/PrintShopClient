@@ -86,7 +86,6 @@ const changeStatus = () => {
 }
 
 const makeCharge = function (token) {
-  console.log('at make charge')
   return $.ajax({
     url: config.apiOrigin + '/charges',
     method: 'POST',
