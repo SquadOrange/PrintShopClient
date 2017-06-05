@@ -21,11 +21,11 @@ const onSignUp = function (event) {
           .then(printUI.indexPrintsSuccess)
           .catch(printUI.indexPrintsFailure)
         })
-        .then(() => {
-          printAPI.showOrder()
-            .then(printUI.showOrderSuccess)
-            .catch(printUI.showOrderFailure)
-        })
+        // .then(() => {
+        //   printAPI.showOrder()
+        //     .then(printUI.showOrderSuccess)
+        //     .catch(printUI.showOrderFailure)
+        // })
         .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
