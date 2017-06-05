@@ -1,10 +1,18 @@
-<!-- {{#each order as |orders|}} -->
-  <ul>
-    {{#each this}}
-  <!-- <ul data-id="{{orders.id}}"> -->
-    <li> Print: {{this.printName}}</li>
-    <li> Quantity: {{this.printQuant}}</li>
+<table class="history-handlebars">
+  <thead>
+    <tr>
+      <th>Print</th>
+      <th>Quantity</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders as |order|}}
+    <tr>
+      <td>{{order.printName}}</td>
+      <td>{{order.printQuant}}</td>
+      <td>{{order.createdAt}}</td>
+    </tr>
     {{/each}}
-  </ul>
-
-<!-- {{/each}} -->
+  </tbody>
+</table>

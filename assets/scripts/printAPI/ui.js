@@ -82,7 +82,7 @@ const showOrderSuccess = (data) => {
     $('.purchase-display').html('You have no previously purchased prints')
   } else {
     const indexPurchaseHtml = showPurchaseTemplate({
-      order: data
+      orders: data.orders
     })
     $('.purchase-display').html(indexPurchaseHtml)
   }
