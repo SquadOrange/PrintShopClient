@@ -94,6 +94,11 @@ const handleToken = function (token) {
     .then(() => {
       onRemovePrints()
     })
+    .then(() => {
+      api.showOrder()
+        .then(ui.showOrderSuccess)
+        .catch(ui.showOrderFailure)
+    })
     .catch(ui.tokenFailure)
 }
 
