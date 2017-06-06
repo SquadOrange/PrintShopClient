@@ -75,18 +75,7 @@ const updateById = (printId, data) => {
   })
 }
 
-const changeStatus = () => {
-  return $.ajax({
-    url: config.apiOrigin + '/purchase-before-sold',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const makeCharge = function (token) {
-  console.log('at make charge')
   return $.ajax({
     url: config.apiOrigin + '/charges',
     method: 'POST',
@@ -104,6 +93,5 @@ module.exports = {
   makeCharge,
   createPrint,
   indexPrints,
-  removeById,
-  changeStatus
+  removeById
 }

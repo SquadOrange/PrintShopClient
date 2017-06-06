@@ -49,13 +49,6 @@ const onCreatePrint = function (event) {
   }
 }
 
-const onChangeStatus = function (event) {
-  event.preventDefault()
-  api.changeStatus()
-    .then(ui.changeStatusSuccess)
-    .catch(ui.changeStatusFailure)
-}
-
 const onUpdatePrint = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -89,18 +82,11 @@ const checkoutHandler = StripeCheckout.configure({
 
 // Stripe checkout
 const handleToken = function (token) {
-  console.log('before adding the amount', token)
   token.amount = (store.totalCost * 100)
-  console.log('after adding the amount', token)
   api.makeCharge(token)
     .then(output => {
-      console.log('output is', output)
-      console.log('output id is', output.id)
-      console.log('output amount is', output.amount)
       const cost = (output.amount / 100).toString()
-      console.log('cost is', cost)
       if (output.status === 'succeeded') {
-        console.log('purchase completed')
         $('.purchaseConfirm').text('You have successfully paid, the total cost was $' + cost)
         onCreateOrder()
       }
@@ -108,34 +94,31 @@ const handleToken = function (token) {
     .then(() => {
       onRemovePrints()
     })
-    .then(ui.tokenSuccess)
+    .then(() => {
+      api.showOrder()
+        .then(ui.showOrderSuccess)
+        .catch(ui.showOrderFailure)
+    })
     .catch(ui.tokenFailure)
 }
 
 // StripeCheckout functions
 const onCheckout = function(ev) {
-  console.log('at on checkout!')
-  console.log('cost it', store.totalCost)
   if (store.totalCost === undefined || store.totalCost === 0) {
-    console.log('you must buy somethine before you can purchase it! Put some prints in the cart')
     $('.purchaseConfirm').text('You must put someting in the cart before you can purchase it. Put some prints in the cart!')
     return
   } else {
     checkoutHandler.open({
-      name: 'Sample Store',
-      description: 'Buying Prints',
+      name: 'Print Store',
+      description: 'Buy prints from the print store',
       token: handleToken
     })
   }
 }
 
 const onCreateOrder = function () {
-  // event.preventDefault()
-  console.log('prints are', store.indexOfPrints)
   const prints = store.indexOfPrints
-  console.log('and this?', prints.prints.length)
   for (let i = 0; i < prints.prints.length; i++) {
-    console.log('are we here?')
     const data = {
       'order': {
         'printName': prints.prints[i].title,
@@ -150,9 +133,7 @@ const onCreateOrder = function () {
 
 const onRemovePrints = () => {
   const prints = store.indexOfPrints
-  console.log('inside onRemovePrints')
   for (let i = 0; i < prints.prints.length; i++) {
-    console.log('inside removePrints for loop')
     const findId = prints.prints[i].id
     api.removeById(findId)
     .then(ui.removePrintsSuccess)
@@ -166,15 +147,12 @@ const onRemovePrints = () => {
 }
 
 const addPrintHandlers = () => {
-  // this is what will now post to make a new print
   $('.print-container').on('submit', onCreatePrint)
   $('.cart-button').on('click', onGetCart)
   $('.update-quantity').on('click', onUpdatePrint)
   $('.purcashed-button').on('click', onShowOrder)
-  // index of all prints which belong to the user
   $('.cartHas-button').on('click', onIndexPrints)
   $('#buttonCheckout').on('click', onCheckout)
-  // $('#changeStatus').on('click', onChangeStatus)
 }
 
 module.exports = {
