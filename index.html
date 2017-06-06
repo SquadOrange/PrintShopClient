@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Prints</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +20,8 @@
 <body>
   <header>
     <h1>P R I N T S</h1>
-    <img class="paintbrush" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/paintbrush.png"/>
-    <img class="palette" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/palette.png"/>
+    <img class="paintbrush" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/paintbrush.png" />
+    <img class="palette" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/palette.png" />
 
     <div class="sign-in-area hideAfterLogin">
       <button id="register">register</button>
@@ -80,12 +81,15 @@
   <div class="cartHas hideBeforeLogin showAfterLogin">
     <button class="cartHas-button" type="submit" name="submit" value="submit">View Cart</button>
     <div class="cartHas-display"></div>
-    <div class="stripe-checkout">
+  </div>
+
+  <br>
+
+    <div class="stripe-checkout hideBeforeLogin showAfterLogin">
       <script src="https://checkout.stripe.com/checkout.js"></script>
       <button type="button" id="buttonCheckout" class="btn btn-primary">Checkout</button>
       <div id="confirm-purchase" class="purchaseConfirm hideBeforeLogin showAfterLogin"></div>
     </div>
-  </div>
 
 
 
@@ -95,8 +99,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/0.png">
       </div>
       <p class="print-name">bento box</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="0">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="0">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -112,8 +116,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/1.png">
       </div>
       <p class="print-name">sushi roll</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="1">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="1">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -130,8 +134,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/2.png">
       </div>
       <p class="print-name">lego man</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="2">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="2">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -147,8 +151,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/3.png">
       </div>
       <p class="print-name">mini cactus</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="3">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="3">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -164,8 +168,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/4.png">
       </div>
       <p class="print-name">eclair</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="4">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="4">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -181,8 +185,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/5.png">
       </div>
       <p class="print-name">sriracha</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="5">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="5">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -198,8 +202,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/6.png">
       </div>
       <p class="print-name">terrarium</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="6">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="6">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -215,8 +219,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/7.png">
       </div>
       <p class="print-name">pineapple</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="7">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="7">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">
@@ -232,8 +236,8 @@
         <img class="print-image" src="https://raw.githubusercontent.com/SquadOrange/PrintShopClient/master/assets/images/8.png">
       </div>
       <p class="print-name">platypus</p>
-        <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
-        <form class="print-form" data-id="8">
+      <!--  Data id should be passed to the cart ID num to reference the object in the prints collection -->
+      <form class="print-form" data-id="8">
         <fieldset>
           <p>$100</p>
           <input class="choose-quantity hideBeforeLogin showAfterLogin" type="number" name="cart[quantity]" min="1" max="10">

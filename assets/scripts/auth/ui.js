@@ -33,14 +33,14 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = (data) => {
-  $('.text-display').text('Password Changed Successfully')
+  $('.text-display').text('Password Changed Successfully').fadeIn().delay(2000).fadeOut('slow')
   $('#change-password').addClass('hidden')
   document.getElementById('change-password').reset()
   $('input').val('')
 }
 
 const changePasswordFailure = () => {
-  $('.text-display').text('Error Changing Password')
+  $('.text-display').text('Error Changing Password').fadeIn().delay(2000).fadeOut('slow')
   document.getElementById('change-password').reset()
   $('input').val('')
 }
