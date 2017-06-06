@@ -6,6 +6,7 @@ const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const indexPrintsSuccess = (response) => {
+  $('.cartHas-display').toggle()
   store.indexOfPrints = response
   if (response.prints.length === 0) {
     $('.cartHas-display').html("Don't forget to add some prints!")
@@ -77,6 +78,7 @@ const removeprintFailure = (response) => {
 }
 
 const showOrderSuccess = (data) => {
+  $('.purchase-display').toggle()
   if (data.orders.length === 0) {
     $('.purchase-display').html('You have no previously purchased prints')
   } else {
