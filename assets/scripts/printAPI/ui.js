@@ -60,14 +60,13 @@ const updatePrint = (event) => {
 }
 
 const updatePrintSuccess = (response) => {
-  $('.text-display').html('Quantity updated')
 }
+
 const updatePrintFailure = (response) => {
   $('.text-display').html('Error updating quantity')
 }
 
 const removePrintSuccess = (target) => {
-  $('.text-display').html('Prints removed')
   $('.create-print-message').detach()
   if ($('.create-print-failure').length) {
     $('.create-print-failure').detach()

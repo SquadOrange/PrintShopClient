@@ -61,6 +61,7 @@ const onUpdatePrint = function (event) {
 
 const onShowOrder = () => {
   event.preventDefault()
+  $('.purchase-display').toggle();
   api.showOrder()
     .then(ui.showOrderSuccess)
     .catch(ui.showOrderFailure)
