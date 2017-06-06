@@ -60,16 +60,16 @@ const onUpdatePrint = function (event) {
 }
 
 const onShowOrder = () => {
-  event.preventDefault()
   $('.purchase-display').toggle()
+  event.preventDefault()
   api.showOrder()
     .then(ui.showOrderSuccess)
     .catch(ui.showOrderFailure)
 }
 
 const onIndexPrints = () => {
-  event.preventDefault()
   $('.cartHas-display').toggle()
+  event.preventDefault()
   api.indexPrints()
     .then(ui.indexPrintsSuccess)
       .then()
