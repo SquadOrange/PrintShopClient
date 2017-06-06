@@ -21,6 +21,8 @@ const signInSuccess = (data) => {
   $('#change-pwd').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('.purchaseConfirm').text('')
+  $('.cartHas-display').hide()
+  $('.purchase-display').hide()
   document.getElementById('sign-in').reset()
 
   // store the user object as per belows
