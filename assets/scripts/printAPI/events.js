@@ -61,7 +61,6 @@ const onUpdatePrint = function (event) {
 
 const onShowOrder = () => {
   event.preventDefault()
-  $('.purchase-display').toggle()
   api.showOrder()
     .then(ui.showOrderSuccess)
     .catch(ui.showOrderFailure)
@@ -69,7 +68,6 @@ const onShowOrder = () => {
 
 const onIndexPrints = () => {
   event.preventDefault()
-  $('.cartHas-display').toggle()
   api.indexPrints()
     .then(ui.indexPrintsSuccess)
       .then()
