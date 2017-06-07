@@ -170,6 +170,11 @@ p,
 .purchase-display, .purchaseConfirm {
   font-size: 1rem;
   color: #4c443a;
+  padding: 6px 0;
+}
+
+.purchaseConfirm {
+  padding-bottom: 12px;
 }
 
 button {
