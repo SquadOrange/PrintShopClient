@@ -107,7 +107,7 @@ const handleToken = function (token) {
 // StripeCheckout functions
 const onCheckout = function(ev) {
   if (store.totalCost === undefined || store.totalCost === 0) {
-    $('.purchaseConfirm').text('You must put someting in the cart before you can purchase it. Put some prints in the cart!')
+    $('.purchaseConfirm').text('You must put something in the cart before you can purchase it. Put some prints in the cart!')
     return
   } else {
     checkoutHandler.open({
