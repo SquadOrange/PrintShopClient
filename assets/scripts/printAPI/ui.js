@@ -95,7 +95,7 @@ const createPrintSuccess = (target) => {
   if ($('.create-print-failure').length) {
     $('.create-print-failure').detach()
   }
-  $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target)
+  $('<div class="create-print-message"><p>Successfully added to cart!</p></div>').appendTo(target).fadeIn().delay(2000).fadeOut('slow')
   $('.purchaseConfirm').text('')
 }
 
@@ -103,7 +103,7 @@ const createPrintFailure = (target) => {
   if ($('.create-print-message').length) {
     $('.create-print-message').detach()
   }
-  $('<div class="create-print-failure"><p>Sorry, please choose a valid quantity.</p><div>').appendTo(target)
+  $('<div class="create-print-failure"><p>Sorry, please choose a valid quantity.</p><div>').appendTo(target).fadeIn().delay(2000).fadeOut('slow')
   $('.purchaseConfirm').text('')
 }
 
@@ -111,7 +111,7 @@ const alreadyInCart = (target) => {
   if ($('.create-print-message').length) {
     $('.create-print-message').detach()
   }
-  $('<div class="create-print-failure"><p>Sorry, that print is already in the cart.</p><div>').appendTo(target)
+  $('<div class="create-print-failure"><p>Sorry, that print is already in the cart.</p><div>').appendTo(target).fadeIn().delay(2000).fadeOut('slow')
 }
 
 const tokenFailure = (response) => {
