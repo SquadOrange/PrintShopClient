@@ -49,6 +49,7 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = (data) => {
   $('.text-display').text('Thanks for shopping. Come back soon!')
+  $('.text-display').show()
   $('.hideBeforeLogin').hide()
   $('.sign-in-area').removeClass('hidden')
   $('#log-in').removeClass('hidden')
